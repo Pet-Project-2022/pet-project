@@ -19,6 +19,7 @@ export const Login = () => {
 
 	return (
 		<form>
+			<h1>Login</h1>
 			{login.error && <div className="alert alert-danger">Error at login</div>}
 			<div className="mb-3">
 				<label htmlFor="exampleInputEmail1" className="form-label">
@@ -50,7 +51,7 @@ export const Login = () => {
 			</div>
 
 			<button type="button" className="btn btn-primary" onClick={() => login.login(email, password)}>
-				Login
+				Login button
 			</button>
 		</form>
 	);
