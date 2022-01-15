@@ -10,8 +10,9 @@ export const Single = props => {
 
 	return (
 		<div className="jumbotron">
-			<h1 className="display-4">This will show the demo element: {store.demo[params.theid].title}</h1>
-			<img src={rigoImageUrl} />
+			<div style={{ width: "800px", height: "600px", backgroundColor: "greenyellow", float: "left" }} />
+			<h1 className="display-4">{params.theid}</h1>
+			<p>This is a single page for the Lost Pets application component.</p>
 			<hr className="my-4" />
 
 			<Link to="/">
