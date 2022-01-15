@@ -74,6 +74,14 @@ def get_pets():
     return jsonify(all_pets), 200
 
 
+@api.route('/pet/<int:id>', methods=['GET'])
+def find_single_pet(id):
+    single_pet = Pet.query.get(id)
+    print('single pet')
+
+    return jsonify(single_pet.serialize()), 200
+
+
 @api.route('/pet', methods=["POST"])
 def find_pet():
     content = request.get_json()
