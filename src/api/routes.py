@@ -89,3 +89,28 @@ def find_pet():
     weight = content["weight"]
     picture = content["picture"]
     found_location = content["found_location"]
+
+    return jsonify(pet.serialize()), 200
+
+
+@api.route('/user', methods=["POST"])
+def create_user():
+    content = request.get_json()
+    print("", content)
+    name = content["name"]
+    email = content["email"]
+    password = content["password"]
+    user_exists = User.query.filter_by(email=email).first()
+    print("", user_exists)
+    if user_exists is not None:
+        raise APIException("user already exists", 400)
+
+    user = User(name=name,
+    email=email,
+    password=password)
+
+    db.session.add(user)
+    db.session.commit()
+
+    return jsonify(user.serialize()), 200
+
