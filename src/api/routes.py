@@ -76,16 +76,16 @@ def get_pets():
 
 @api.route('/pet', methods=["POST"])
 def find_pet():
-    body = request.get_json()
+    content = request.get_json()
     print("", body)
-    id = body["id"]
-    gender = body["gender"]
-    michrochip = body["michrochip"]
-    found_date = body["found_date"]
-    injured = body["injured"]
-    possible_name = body["possible_name"]
-    color = body["color"]
-    size = body["size"]
-    weight = body["weight"]
-    picture = body["picture"]
-    found_location = body["found_location"]
+    id = content["id"]
+    gender = content["gender"]
+    michrochip = content["michrochip"]
+    found_date = content["found_date"]
+    injured = content["injured"]
+    possible_name = content["possible_name"]
+    color = content["color"]
+    size = content["size"]
+    weight = content["weight"]
+    picture = content["picture"]
+    found_location = content["found_location"]
