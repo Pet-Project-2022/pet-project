@@ -74,7 +74,7 @@ def get_pets():
     return jsonify(all_pets), 200
 
 
-@api.route('/pet/<int:id>', methods=['GET'])
+@api.route('/pets/<id>', methods=['GET'])
 def find_single_pet(id):
     single_pet = Pet.query.get(id)
     print('single pet')
@@ -82,11 +82,11 @@ def find_single_pet(id):
     return jsonify(single_pet.serialize()), 200
 
 
-@api.route('/pet', methods=["POST"])
-def find_pet():
+@api.route('/pets', methods=["POST"])
+def store_pet():
     content = request.get_json()
     print("", body)
-    id = content["id"]
+    animal_id = content["animal_id"]
     gender = content["gender"]
     michrochip = content["michrochip"]
     found_date = content["found_date"]
@@ -98,7 +98,7 @@ def find_pet():
     picture = content["picture"]
     found_location = content["found_location"]
 
-    return jsonify(pet.serialize()), 200
+    return jsonify(pet.serialize()), 204
 
 
 @api.route('/user', methods=["POST"])
