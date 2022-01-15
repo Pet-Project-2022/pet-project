@@ -69,12 +69,13 @@ def login():
 @api.route('/pets', methods=['GET'])
 def get_pets():
     pets = Pets.query.all()
-    all_pets = list(map(lambda pet: pet.serialize(), pets))
+    #TODO filter by color, zipcode & species 
+    all_pets = [x.serialize() for x in pets]
 
     return jsonify(all_pets), 200
 
 
-@api.route('/pets/<id>', methods=['GET'])
+@api.route('/pets/<int:id>', methods=['GET'])
 def find_single_pet(id):
     single_pet = Pet.query.get(id)
     print('single pet')
@@ -98,46 +99,14 @@ def store_pet():
     picture = content["picture"]
     found_location = content["found_location"]
 
-    return jsonify(pet.serialize()), 204
-
-
-@api.route('/user', methods=["POST"])
-def create_user():
-    content = request.get_json()
-    print("", content)
-    name = content["name"]
-    email = content["email"]
-    password = content["password"]
-    user_exists = User.query.filter_by(email=email).first()
-    print("", user_exists)
-    if user_exists is not None:
-        raise APIException("user already exists", 400)
-
-    user = User(name=name,
-    email=email,
-    password=password)
-
-    db.session.add(user)
-    db.session.commit()
-
-    return jsonify(user.serialize()), 200
-
-
-@api.route('/user/<id>', methods=['DELETE'])
-def delete_profile(id):
-    delete_user = User.query.get(id)
-    if delete_user is None:
-        raise APIException('User not found', status_code=404)
-    db.session.delete(delete_user)
-    db.session.commit()
-    return jsonify({"message": "User Removed"})
+    return "", 204
 
 
 @api.route('/pet/<id>', methods=['DELETE'])
 def remove_pet(id):
     delete_pet = Pet.query.get(id)
     if delete_pet is None:
-        raise APIException('Pet not found', status_code=404)
+        raise 'Pet not found', 404
     db.session.delete(delete_pet)
     db.session.commit()
-    return jsonify({"Message": "Post Removed"})
+    return "", 204
