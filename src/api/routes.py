@@ -114,3 +114,22 @@ def create_user():
 
     return jsonify(user.serialize()), 200
 
+
+@api.route('/user/<id>', methods=['DELETE'])
+def delete_profile(id):
+    delete_user = User.query.get(id)
+    if delete_user is None:
+        raise APIException('User not found', status_code=404)
+    db.session.delete(delete_user)
+    db.session.commit()
+    return jsonify({"message": "User Removed"})
+
+
+@api.route('/pet/<id>', methods=['DELETE'])
+def remove_pet(id):
+    delete_pet = Pet.query.get(id)
+    if delete_pet is None:
+        raise APIException('Pet not found', status_code=404)
+    db.session.delete(delete_pet)
+    db.session.commit()
+    return jsonify({"Message": "Post Removed"})
