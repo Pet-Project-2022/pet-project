@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
+import { Pets } from "./pages/pets";
+import { Pet } from "./pages/pet";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { Dashboard } from "./pages/dashboard";
