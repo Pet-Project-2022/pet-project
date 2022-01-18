@@ -20,7 +20,7 @@ class User(db.Model):
         }
 
 
-class Users(Base):
+class User(Base):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=False, nullable=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -39,7 +39,7 @@ class Users(Base):
         }
 
 
-class Pets(Base):
+class Pet(Base):
     id = db.Column(db.Integer, primary_key=True)
     gender = db.Column(db.String(120), unique=False, nullable=True)
     michrochip = db.Column(db.String(120), unique=True, nullable=True)
@@ -52,3 +52,22 @@ class Pets(Base):
     picture = db.Column(db.String(120), unique=False, nullable=True)
     zipcode = db.Column(db.String(120), unique=False, nullable=False)
     post_creator = db.Column(db.String(120), unique=True, nullable=False)
+
+    def __repr__(self):
+        return '<Pet %r>' % self.pet
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "gender": self.gender,
+            "michrochip": self.michrochip,
+            "found_date": self.found_date,
+            "injured": self.injured,
+            "possible_name": self.possible_name,
+            "color": self.color,
+            "size": self.size,
+            "weight": self.weight,
+            "picture": self.picture,
+            "zipcode": self.zipcode,
+            "post_creator": self.post_creator
+        }
