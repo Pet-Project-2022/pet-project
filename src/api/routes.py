@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Pets
+from api.models import db, User, Pet
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from argon2 import PasswordHasher
@@ -105,8 +105,8 @@ def store_pet():
 @api.route('/pet/<id>', methods=['DELETE'])
 def remove_pet(id):
     delete_pet = Pet.query.get(id)
-    if delete_pet is None:
-        raise 'Pet not found', 404
+    #if delete_pet is None:
+    #    raise 'Pet not found', 404
     db.session.delete(delete_pet)
     db.session.commit()
     return "", 204
