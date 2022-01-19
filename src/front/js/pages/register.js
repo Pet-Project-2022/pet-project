@@ -53,7 +53,9 @@ export const useAuth = create(
 );
 
 export const Register = () => {
+	const [name, setName] = React.useState("");
 	const [email, setEmail] = React.useState("");
+	const [zipcode, setZipcode] = React.useState("");
 	const [password, setPassword] = React.useState("");
 	const history = useHistory();
 	const register = useAuth();
@@ -70,6 +72,31 @@ export const Register = () => {
 		<form>
 			{register.error && <div className="alert alert-danger">Error at register</div>}
 			<div className="mb-3">
+				<label htmlFor="exampleInputYourName" className="form-label">
+					What is your Name?
+				</label>
+				<input
+					type="name"
+					className="form-control"
+					id="exampleInputName"
+					aria-describedby="nameHelp"
+					value={name}
+					onChange={ev => setName(ev.target.value)}
+				/>
+				<div id="namelHelp" className="form-text">
+				</div>
+				<div className="mb-3">
+				<label htmlFor="exampleInputZipdoce" className="form-label">
+					Zipcode
+				</label>
+				<input
+					type="zipdoce"
+					className="form-control"
+					id="exampleInputPassword1"
+					value={zipcode}
+					onChange={ev => setZipcode(ev.target.value)}
+				/>
+			</div>
 				<label htmlFor="exampleInputEmail1" className="form-label">
 					Email address
 				</label>
@@ -97,7 +124,6 @@ export const Register = () => {
 					onChange={ev => setPassword(ev.target.value)}
 				/>
 			</div>
-
 			<button type="button" className="btn btn-primary" onClick={() => register.register(email, password)}>
 				Register
 			</button>
