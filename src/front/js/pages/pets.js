@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import "../../styles/pets.scss"
 
 export const Pets = () => {
     const;
