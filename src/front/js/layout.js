@@ -42,6 +42,10 @@ const Layout = () => {
 							<Dashboard />
 						</Route>
 
+						<Route exact path="/pet">
+							<Pet />
+						</Route>
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
