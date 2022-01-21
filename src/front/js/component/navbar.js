@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownItem from "react-bootstrap/DropdownItem";
 
 export const Navbar = () => {
 	const favorites = useFavorites();
