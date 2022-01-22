@@ -6,8 +6,7 @@ export const Pet = () => {
 		<div className="container-flex">
 			<div className="row">
 				<h1 className="text">Characters</h1>
-				return (
-				<div className="col-3 col-xs-6 card-profiles" key={index}>
+				<div className="col-3 col-xs-6 card-profiles">
 					<div className="card">
 						<img src="card-img-top" alt="..." />
 						<div className="card-body">
