@@ -1,6 +1,8 @@
 import React from "react";
 
 export function SearchPets() {
+	const [task, setTask] = React.useState("");
+
 	return (
 		<div className="container">
 			<div>
@@ -20,6 +22,8 @@ export function SearchPets() {
 						}
 					}}
 				/>
+				<input type="button" value=" Filter " id="FilterButton" />
+				<input type="button" value=" Submit " id="SubmitButton" />
 			</div>
 		</div>
 	);
