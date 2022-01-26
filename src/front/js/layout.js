@@ -7,6 +7,7 @@ import { Pet } from "./pages/pets";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { Dashboard } from "./pages/dashboard";
+import { Amber } from "./pages/amber";
 
 import injectContext from "./store/appContext";
 
@@ -27,6 +28,10 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+
+						<Route exact path="/amber">
+							<Amber />
 						</Route>
 
 						<Route exact path="/login">
