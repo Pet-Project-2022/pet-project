@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/searchBar.scss";
 
 export function SearchPets() {
 	const [task, setTask] = React.useState("");
@@ -8,9 +9,10 @@ export function SearchPets() {
 			<div>
 				<h1 className="title">Search Lost Pets</h1>
 			</div>
-			<div className="app">
+			<div>
 				<input
 					className="input"
+					style={{ width: "300px" }}
 					type="text"
 					onChange={e => setTask(e.target.value)}
 					value={task}
@@ -24,6 +26,10 @@ export function SearchPets() {
 				/>
 				<input type="button" value=" Filter " id="FilterButton" />
 				<input type="button" value=" Submit " id="SubmitButton" />
+				<br />
+				<a href="/amber/" className="amberLink">
+					Start your Alert Now! Its Free!!
+				</a>
 			</div>
 		</div>
 	);
