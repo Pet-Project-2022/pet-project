@@ -9,6 +9,8 @@ from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identi
 from argon2 import PasswordHasher
 from werkzeug.utils import secure_filename
 import hashlib
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -72,6 +74,21 @@ def register_user():
     )
     db.session.add(user)
     db.session.commit()
+
+    message = Mail(
+        from_email='thart003@ucr.edu',
+        to_emails=data['email'],
+        subject='Pet Post Registration',
+        html_content='<strong>Pet Post Update</strong>'
+    )
+    try:
+        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        response = sg.send(message)
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
+    except Exception as e:
+        print(e.message)
 
     return '', 204
 
