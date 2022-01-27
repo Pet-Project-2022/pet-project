@@ -1,39 +1,52 @@
-import React from "react";
+import React, { Component, useContext }from "react";
 import { Link } from "react-router-dom";
+import { Navbar } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import "../../styles/navbar.scss";
 
-export const Navbar = () => {
+export const NavBar = () => {
+	const { store } = useContext(Context);
+	const history = useHistory();
+
+	const handleLogOut = () => {
+		localStorage.clear();
+		history.push("/");
+		location.reload();
+	};
+
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">Lost Pets App</span>
-			</Link>
-			<div className="ml-auto d-inline-block">
-				<Link to="/pet">
-					<span className="navbar-brand mb-0 h1">Pet</span>
-				</Link>
-			</div>
-			<div className="ml-auto">
-				<div className="dropdown">
-					<button
-						className="btn btn-primary btn-sm"
-						type="button"
-						id="login"
-						data-bs-toggle="dropdown"
-						aria-bs-toggle="dropdown"
-						aria-expanded="false">
-						Login
-					</button>
-					<button
-						className="btn btn-primary btn-sm"
-						type="button"
-						id="signUp"
-						data-bs-toggle="dropdown"
-						aria-bs-toggle="dropdown"
-						aria-expanded="false">
-						Sign Up
-					</button>
-				</div>
-			</div>
-		</nav>
-	);
+		<Navbar variant="dark" bg="light" expand="lg">
+			<Container fluid>
+				<Navbar.Brand href="/">
+					<i class="fas fa-dragon"></i>
+				</Navbar.Brand>
+
+				<Nav className="justify-content-center" activeKey="/home">
+					{!store.activeUser ? (
+						<>
+								<Nav.Item className="loginTab pr-3">
+									<Nav.Link href="/login">Log In</Nav.Link>
+								</Nav.Item>
+
+								<Nav.Item className="signupTab pr-3">
+									<Nav.Link href="/createUser">Sign Up</Nav.Link>
+								</Nav.Item>
+						</>
+					) : (
+						<>
+								<Nav.Item>
+									<Nav.Link href="/profile">Profile</Nav.Link>
+								</Nav.Item>
+
+								<Nav.Item>
+									<Nav.Link onClick={() => handleLogOut()}>Sign Out</Nav.Link>
+								</Nav.Item>
+						</>
+					)}
+				</Nav>
+			</Container>
+		</Navbar>
+	)
 };
