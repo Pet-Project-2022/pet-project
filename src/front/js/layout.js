@@ -11,7 +11,7 @@ import { Amber } from "./pages/amber";
 
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
+import { NavBar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
 //create your first component
@@ -24,7 +24,7 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					<NavBar />
 					<Switch>
 						<Route exact path="/">
 							<Home />
