@@ -1,6 +1,8 @@
 import React from "react";
 import "../../styles/amber.scss";
 import Button from "react-bootstrap/Button";
+import Google from "../component/imgs/gl.png";
+import Facebook from "../component/imgs/fb.png";
 
 export const Amber = () => {
 	return (
@@ -29,20 +31,30 @@ export const Amber = () => {
 						</div>
 					</div>
 				</div>
-				<>
-					<a href={"/createUser/"} className="btn btn-primary btn-lg">
-						Sign Up
-					</a>
-					<a href={"/login/"} className="btn btn-primary btn-lg">
-						Log In
-					</a>
-					<button type="button" className="btn btn-primary btn-lg">
-						Login With Facebook
-					</button>
-					<button type="button" className="btn btn-primary btn-lg">
-						Login With Gmail
-					</button>
-				</>
+				<div className="login">
+					<h1 className="loginTitle">Choose a Login Method</h1>
+					<div className="loginArea">
+						<div className="left">
+							<div className="loginButton google">
+								<img src={Google} alt="" className="icon" />
+								Google
+							</div>
+							<div className="loginButton facebook">
+								<img src={Facebook} alt="" className="icon" />
+								Facebook
+							</div>
+						</div>
+						<div className="center">
+							<div className="line" />
+							<div className="or">OR</div>
+						</div>
+						<div className="right">
+							<input type="text" placeholder="Username" />
+							<input type="text" placeholder="Password" />
+							<button className="submit">Login</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
