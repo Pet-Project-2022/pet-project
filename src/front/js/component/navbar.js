@@ -1,4 +1,5 @@
 import React, { Component, useContext }from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
