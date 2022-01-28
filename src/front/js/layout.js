@@ -13,6 +13,7 @@ import injectContext from "./store/appContext";
 
 import { NavBar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Userform } from "./pages/userform";
 
 //create your first component
 const Layout = () => {
@@ -44,6 +45,10 @@ const Layout = () => {
 
 						<Route exact path="/dashboard">
 							<Dashboard />
+						</Route>
+
+						<Route exact path="/userform">
+							<Userform />
 						</Route>
 
 						<Route>
