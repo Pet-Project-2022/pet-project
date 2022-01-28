@@ -7,7 +7,6 @@ export const Login = () => {
 	const [password, setPassword] = React.useState("");
 	const history = useHistory();
 	const login = useAuth();
-
 	useEffect(
 		() => {
 			if (login.token) {
