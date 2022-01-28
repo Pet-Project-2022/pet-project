@@ -1,25 +1,9 @@
-.navbarPet{
-    height: 50px;
-    background-color: white;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
+.navbar{
+    background-color: rgb(35, 136, 26);
+    max-height: 130px;
+    padding-right: 50px;
+    padding-left: 50px;
 }
-
-.list{
-    display: flex;
-    align-items: center;
-    list-style: none;
-}
-
-.listItem{
-   margin-right: 20px;     
-}
-
-.logoAvatar{
-    height: 50px;
-    width: 50px;
-    
+.logo{
+    max-height: 200px;
 }
