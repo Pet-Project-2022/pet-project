@@ -1,7 +1,58 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
+import create from "zustand";
+import { persist } from "zustand/middleware";
 import "../../styles/createUser.scss";
+
+export const useAuth = create(
+	persist(
+		set => ({
+			error: false,
+			success: false,
+			token: null,
+
+			register: async (email, password) => {
+				const response = await fetch(process.env.BACKEND_URL + "/api/register", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({ email, password })
+				});
+
+				if (response.status === 204) {
+					set({ success: true });
+				} else {
+					set({ error: true });
+				}
+			},
+
+			login: async (email, password) => {
+				const response = await fetch(process.env.BACKEND_URL + "/api/login", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({ email, password })
+				});
+
+				if (response.status === 200) {
+					const payload = await response.json();
+					set({ token: payload.token });
+				} else {
+					set({ error: true });
+				}
+			},
+
+			logout: () => set({ token: null })
+		}),
+		{
+			name: "auth-app",
+			getStorage: () => sessionStorage
+		}
+	)
+);
 
 export const Register = () => {
 	const { store, actions } = useContext(Context);
