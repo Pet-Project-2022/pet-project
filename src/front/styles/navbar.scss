@@ -1,0 +1,25 @@
+.navbarPet{
+    height: 50px;
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.list{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.listItem{
+   margin-right: 20px;     
+}
+
+.logoAvatar{
+    height: 50px;
+    width: 50px;
+    
+}
