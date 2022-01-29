@@ -11,11 +11,11 @@ export const Single = props => {
 	return (
 		<div className="jumbotron">
 			<div style={{ width: "800px", height: "600px", backgroundColor: "greenyellow", float: "left" }} />
-			<h1 className="display-4">{params.theid}</h1>
+			<h1 className="display-4">{pets[params.theid]}</h1>
 			<p>This is a single page for the Lost Pets application component.</p>
 			<hr className="my-4" />
 
-			<Link to="/">
+			<Link to="/pets">
 				<span className="btn btn-primary btn-lg" href="#" role="button">
 					Back home
 				</span>
