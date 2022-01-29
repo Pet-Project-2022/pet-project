@@ -8,6 +8,7 @@ import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { Dashboard } from "./pages/dashboard";
 import { Amber } from "./pages/amber";
+import { Petsform } from "./pages/form";
 
 import injectContext from "./store/appContext";
 
@@ -51,6 +52,9 @@ const Layout = () => {
 							<Userform />
 						</Route>
 
+						<Route exact path="/form">
+							<Petsform />
+						</Route>
 						<Route>
 							<h1>Not found!</h1>
 						</Route>

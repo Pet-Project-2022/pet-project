@@ -66,7 +66,6 @@ export const Userform = () => {
 							<input type="radio" aria-label="Radio button for following text input" />
 						</div>
 					</div>
-					<input type="text" className="form-control" aria-label="Text input with radio button" />
 					<label className="radio3">
 						{" "}
 						I Agree with the Privacy Policy and the Terms of Service (Agreement Policy)
