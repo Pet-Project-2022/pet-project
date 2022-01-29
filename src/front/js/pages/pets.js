@@ -8,14 +8,12 @@ export const Pet = props => {
 		<div className="card w-25 p-3">
 			<img
 				className="card-img-top"
-				src="https://cloudfront-us-east-1.images.arcpublishing.com/gmg/BN6CBRWE4RBOPC3KT5DVP4KFZI.jpg"
+				src={"https://cloudfront-us-east-1.images.arcpublishing.com/gmg/BN6CBRWE4RBOPC3KT5DVP4KFZI.jpg"}
 				alt="Card image cap"
 			/>
 			<div className="card-body">
 				<h5 className="card-title">{props.species}</h5>
-				<p className="card-text">
-					Some quick example text to build on the card title and make up the bulk of the cards content.
-				</p>
+				<p className="card-text">Find Me!</p>
 			</div>
 			<Button />
 			<ul className="post-details list-group list-group-flush">
@@ -26,10 +24,7 @@ export const Pet = props => {
 
 			<div className="card-body">
 				<a href="#" className="card-link">
-					Card link
-				</a>
-				<a href="#" className="card-link">
-					Another link
+					Contact Owner
 				</a>
 			</div>
 		</div>

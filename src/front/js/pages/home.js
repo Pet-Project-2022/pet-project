@@ -3,9 +3,10 @@ import "../../styles/home.scss";
 import { Pet } from "./pets";
 import { SearchPets } from "../component/SearchBar";
 import { Amber } from "./amber";
+import useSWR from "swr";
 
-export async function PetFetch(path) {
-	const response = await fetch("/api/pet" + path);
+export async function petFetch(path) {
+	const response = await fetch(process.env.BACKEND_URL + path);
 	if (response.status === 200) {
 		const payload = await response.json();
 
@@ -14,14 +15,17 @@ export async function PetFetch(path) {
 	throw new Error();
 }
 
-export const Home = () => (
-	<div className="text-center mt-5 bgmain">
-		<SearchPets />
-		<div className="row">
-			<Pet name={"blackie"} color={"black"} location={"Miami"} />
-			<Pet name={"red"} color={"red"} location={"Fort Lauderdale"} />
-			<Pet name={"whitie"} color={"white"} location={"Homestead"} />
-			<Pet name={"pumpkin"} color={"orange"} location={"Hiajeliah"} />
+export const Home = () => {
+	const { data, isValidating } = useSWR("/api/pet", petFetch);
+	return (
+		<div className="text-center mt-5 bgmain">
+			<SearchPets />
+			<div className="row">
+				{data &&
+					data.map((item, index) => {
+						return <Pet name={item.name} color={item.color} location={item.location} key={index} />;
+					})}
+			</div>
 		</div>
-	</div>
-);
+	);
+};
