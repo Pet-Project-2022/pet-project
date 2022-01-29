@@ -20,7 +20,15 @@ export const NavBar = () => {
 		<Navbar bg="light" expand="lg">
 			<Container>
 				<Navbar.Brand href="#home">
-					<img src={Logo} width="60" height="30" className="d-inline-block align-top" alt="Lost Pets logo" />
+					<Nav.Link href="/">
+						<img
+							src={Logo}
+							width="60"
+							height="30"
+							className="d-inline-block align-top"
+							alt="Lost Pets logo"
+						/>
+					</Nav.Link>
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">

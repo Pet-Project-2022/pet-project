@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/petform.scss";
 
 export const Petsform = () => {
 	return (
@@ -11,27 +12,26 @@ export const Petsform = () => {
 				<div className="row">
 					<div className="radiobutton">
 						<div className="form-check">
-							<input
-								className="form-check-input"
-								type="radio"
-								name="flexRadioDefault"
-								id="flexRadioDefault1"
-							/>
-							<label className="form-check-label" htmlFor="flexRadioDefault1">
-								Pet Lost
-							</label>
-						</div>
-						<div className="form-check">
-							<input
-								className="form-check-input"
-								type="radio"
-								name="flexRadioDefault"
-								id="flexRadioDefault2"
-								checked
-							/>
-							<label className="form-check-label" htmlFor="flexRadioDefault2">
-								Pet Found
-							</label>
+							<div className="form-check form-check-inline">
+								<input
+									className="form-check-input"
+									type="radio"
+									name="inlineRadioOptions"
+									id="inlineRadio1"
+									value="option1"
+								/>
+								<label className="form-check-label">Pet Missed</label>
+							</div>
+							<div className="form-check form-check-inline">
+								<input
+									className="form-check-input"
+									type="radio"
+									name="inlineRadioOptions"
+									id="inlineRadio2"
+									value="option2"
+								/>
+								<label className="form-check-label">Pet Found</label>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -63,7 +63,7 @@ export const Petsform = () => {
 				</div>
 			</div>
 			<div className="uploadbutton">
-				<button className="btn btn-primary" type="submit">
+				<button className="btn btn-primary" type="submit" href="/Uploadimage">
 					Upload Picture
 				</button>
 			</div>

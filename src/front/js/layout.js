@@ -9,6 +9,7 @@ import { Register } from "./pages/register";
 import { Dashboard } from "./pages/dashboard";
 import { Amber } from "./pages/amber";
 import { Petsform } from "./pages/form";
+import { UploadImage } from "./component/UploadImage";
 
 import injectContext from "./store/appContext";
 
@@ -32,6 +33,10 @@ const Layout = () => {
 							<Home />
 						</Route>
 
+						<Route exact path="/pets">
+							<Pet />
+						</Route>
+
 						<Route exact path="/amber">
 							<Amber />
 						</Route>
@@ -50,6 +55,9 @@ const Layout = () => {
 
 						<Route exact path="/userform">
 							<Userform />
+						</Route>
+						<Route exact path="/UploadImage">
+							<UploadImage />
 						</Route>
 
 						<Route exact path="/form">

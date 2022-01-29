@@ -1,0 +1,28 @@
+.container {
+    width: 100%;
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+}
+
+.pets-wrapper {
+    background-color: #fff;
+    min-width: 350px;
+    min-height: 650px;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.topforminfo{
+    text-align: center;
+    margin: 10px 0px 40px 0px;
+}
+
+.form-group{
+    margin: 5px;
+    color: #830707;
+    font-size: 16px;
+
+}
