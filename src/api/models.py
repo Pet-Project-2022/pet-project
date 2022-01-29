@@ -37,7 +37,7 @@ class Pet(db.Model):
     picture = db.Column(db.String(120), unique=False, nullable=True)
     zipcode = db.Column(db.String(120), unique=False, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
-    user = db.relationship("User")
+   
 
     def __repr__(self):
         return '<Pet %r>' % self.pet
