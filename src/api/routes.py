@@ -115,8 +115,21 @@ def login():
 
 @api.route('/pet', methods=['GET'])
 def get_pets():
-    pets = Pets.query.all()
-    #TODO filter by color, zipcode & species 
+    pets = Pet.query
+    color = request.args.get("color")
+    if color is not None:
+        pets = pets.filter(Pet.color == color)
+
+    location = request.args.get("location")
+    if location is not None:
+        pets = pets.filter(Pet.location == location)
+
+    name = request.args.get("name")
+    if name is not None:
+        pets = pets.filter(Pet.name.ilike(name))
+
+
+
     all_pets = [x.serialize() for x in pets]
 
     return jsonify(all_pets), 200
