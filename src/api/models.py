@@ -25,6 +25,7 @@ class User(db.Model):
 
 class Pet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), unique=False, nullable=True)
     gender = db.Column(db.String(120), unique=False, nullable=True)
     michrochip = db.Column(db.String(120), unique=True, nullable=True)
     found_date = db.Column(db.String(120), unique=False, nullable=True)
@@ -35,7 +36,8 @@ class Pet(db.Model):
     weight = db.Column(db.String(120), unique=False, nullable=True)
     picture = db.Column(db.String(120), unique=False, nullable=True)
     zipcode = db.Column(db.String(120), unique=False, nullable=False)
-    post_creator = db.Column(db.String(120), unique=True, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    user = db.relationship("User")
 
     def __repr__(self):
         return '<Pet %r>' % self.pet
@@ -53,5 +55,6 @@ class Pet(db.Model):
             "weight": self.weight,
             "picture": self.picture,
             "zipcode": self.zipcode,
-            "post_creator": self.post_creator
+            "name": self.name,
+            "user": self.user.serialize()
         }
