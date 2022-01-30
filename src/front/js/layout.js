@@ -5,7 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Pet } from "./pages/pets";
 import { Login } from "./pages/login";
-import { Register } from "./pages/register";
+//import { Register } from "./pages/register";
 import { Dashboard } from "./pages/dashboard";
 import { Amber } from "./pages/amber";
 import { Petsform } from "./pages/form";
@@ -15,7 +15,7 @@ import injectContext from "./store/appContext";
 
 import { NavBar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { Userform } from "./pages/userform";
+import { Signup } from "./pages/signup";
 
 //create your first component
 const Layout = () => {
@@ -44,17 +44,12 @@ const Layout = () => {
 						<Route exact path="/login">
 							<Login />
 						</Route>
-
-						<Route exact path="/register">
-							<Register />
-						</Route>
-
 						<Route exact path="/dashboard">
 							<Dashboard />
 						</Route>
 
-						<Route exact path="/userform">
-							<Userform />
+						<Route exact path="/signup">
+							<Signup />
 						</Route>
 						<Route exact path="/UploadImage">
 							<UploadImage />
