@@ -8,12 +8,8 @@ export const Userform = () => {
 			<form id="createUserForm">
 				<div className="row">
 					<div className="form-group col-xs-6">
-						<label htmlFor="firstname">First Name</label>
+						<label htmlFor="fullname">Full Name</label>
 						<input type="text" className="form-control" id="firstName" placeholder="first name" />
-					</div>
-					<div className="form-group col-xs-6">
-						<label htmlFor="lastname">Last Name</label>
-						<input type="text" clasName="form-control" id="lastName" placeholder="last name" />
 					</div>
 				</div>
 				<div className="row">
@@ -60,14 +56,10 @@ export const Userform = () => {
 						/>
 					</div>
 				</div>
-				<div className="input-group">
-					<div className="input-group-prepend">
-						<div className="input-group-text">
-							<input type="radio" aria-label="Radio button for following text input" />
-						</div>
-					</div>
-					<label className="radio3">
-						{" "}
+				<div className="checkagreement">
+					<input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+
+					<label className="agretext">
 						I Agree with the Privacy Policy and the Terms of Service (Agreement Policy)
 					</label>
 				</div>
