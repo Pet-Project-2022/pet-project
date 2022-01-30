@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/createUser.scss";
 import Button from "react-bootstrap/Button";
 import create from "zustand";
@@ -55,29 +55,31 @@ export const useAuth = create(
 );
 
 export const Signup = () => {
-	const { store, actions } = useContext(Context);
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [full_name, setFull_name] = useState("");
-	const [zipcode, setZipcode] = useState("");
-	const [error, setError] = useState(null);
-	const [LoginStatus, setLoginStatus] = useState("");
-	const [messageState, setMessageState] = useState({
-		isActive: false,
-		message: "hello"
+	const [values, setValues] = useState({
+		fullname: "",
+		email: "",
+		password: "",
+		zipcode: ""
 	});
 
-	const handleSubmit = e => {
-		e.preventDefault();
-		console.log(email, password, full_name, zipcode);
-		actions
-			.signup(email, password, full_name, zipcode, setMessageState)
-			.then(data => history.push("/userDashboard"))
-			.catch(error => {
-				setError(error);
-				console.log("This is an error", error);
-			});
+	const handleChange = event => {
+		setValues({
+			...values,
+			[event.target.name]: event.target.value
+		});
 	};
+};
+
+const handleFormSubmit = e => {
+	e.preventDefault();
+	console.log(email, password, full_name, zipcode);
+	actions
+		.signup(email, password, full_name, zipcode, username, setMessageState)
+		.then(data => history.push("/userDashboard"))
+		.catch(error => {
+			setError(error);
+			console.log("This is an error", error);
+		});
 
 	return (
 		<div className="createPage">
@@ -85,7 +87,15 @@ export const Signup = () => {
 				<div className="row">
 					<div className="form-group col-xs-6">
 						<label htmlFor="fullname">Full Name</label>
-						<input type="text" className="form-control" id="name" placeholder="full name" />
+						<input
+							type="text"
+							className="form-control"
+							id="name"
+							placeholder="full name"
+							name="fullname"
+							value={values.fullname}
+							onChange={handleChange}
+						/>
 					</div>
 				</div>
 				<div className="row">
@@ -96,6 +106,9 @@ export const Signup = () => {
 							className="form-control"
 							id="exampleFormControlInput1"
 							placeholder="email"
+							name="email"
+							value={values.email}
+							onChange={handleChange}
 						/>
 					</div>
 				</div>
@@ -103,10 +116,13 @@ export const Signup = () => {
 					<div className="form-group">
 						<label htmlFor="exampleFormControlInput1">Zip Code</label>
 						<input
-							type="email"
+							type="zipcode"
 							className="form-control"
 							id="exampleFormControlInput1"
 							placeholder="zip code"
+							name="zipcode"
+							value={values.zipcode}
+							onChange={handleChange}
 						/>
 					</div>
 				</div>
@@ -114,10 +130,13 @@ export const Signup = () => {
 					<div className="form-group">
 						<label htmlFor="exampleFormControlInput1">Username</label>
 						<input
-							type="email"
+							type="username"
 							className="form-control"
 							id="exampleFormControlInput1"
 							placeholder="username"
+							name="username"
+							value={values.username}
+							onChange={handleChange}
 						/>
 					</div>
 				</div>
@@ -125,10 +144,13 @@ export const Signup = () => {
 					<div className="form-group">
 						<label htmlFor="exampleFormControlInput1">Password</label>
 						<input
-							type="email"
+							type="password"
 							className="form-control"
 							id="exampleFormControlInput1"
 							placeholder="password"
+							name="password"
+							value={values.password}
+							onChange={handleChange}
 						/>
 					</div>
 				</div>
@@ -139,8 +161,8 @@ export const Signup = () => {
 						I Agree with the Privacy Policy and the Terms of Service (Agreement Policy)
 					</label>
 				</div>
-				<button className="btn btn-primary" type="submit">
-					Submit
+				<button className="btn btn-primary" type="submit" onClick={handleFormSubmit}>
+					SIGN UP
 				</button>
 			</form>
 		</div>

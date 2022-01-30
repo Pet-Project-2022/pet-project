@@ -45,6 +45,7 @@ class Pet(db.Model):
     def serialize(self):
         return {
             "id": self.id,
+            "name": self.name,
             "gender": self.gender,
             "michrochip": self.michrochip,
             "found_date": self.found_date,
@@ -55,6 +56,5 @@ class Pet(db.Model):
             "weight": self.weight,
             "picture": self.picture,
             "zipcode": self.zipcode,
-            "name": self.name,
             "user": self.user.serialize()
         }
