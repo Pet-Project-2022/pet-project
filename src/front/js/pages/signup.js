@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/createUser.scss";
+import { Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import create from "zustand";
 import { persist } from "zustand/middleware";
 import "../../styles/createUser.scss";
+import validation from "../component/validation";
+import { NoEmitOnErrorsPlugin } from "webpack";
 
 export const useAuth = create(
 	persist(
@@ -59,8 +61,11 @@ export const Signup = () => {
 		fullname: "",
 		email: "",
 		password: "",
-		zipcode: ""
+		zipcode: "",
+		history: ""
 	});
+
+	const [error, setError] = useState({});
 
 	const handleChange = event => {
 		setValues({
@@ -96,6 +101,7 @@ const handleFormSubmit = e => {
 							value={values.fullname}
 							onChange={handleChange}
 						/>
+						{errors.fullname && <p className="error">{errors.fullname}</p>}
 					</div>
 				</div>
 				<div className="row">
@@ -110,6 +116,7 @@ const handleFormSubmit = e => {
 							value={values.email}
 							onChange={handleChange}
 						/>
+						{errors.email && <p className="error">{errors.email}</p>}
 					</div>
 				</div>
 				<div className="row">
@@ -124,6 +131,7 @@ const handleFormSubmit = e => {
 							value={values.zipcode}
 							onChange={handleChange}
 						/>
+						{errors.zipcode && <p className="error">{errors.zipcode}</p>}
 					</div>
 				</div>
 				<div className="row">
@@ -138,6 +146,7 @@ const handleFormSubmit = e => {
 							value={values.username}
 							onChange={handleChange}
 						/>
+						{errors.username && <p className="error">{errors.username}</p>}
 					</div>
 				</div>
 				<div className="row">
@@ -152,6 +161,7 @@ const handleFormSubmit = e => {
 							value={values.password}
 							onChange={handleChange}
 						/>
+						{errors.password && <p className="error">{errors.password}</p>}
 					</div>
 				</div>
 				<div className="checkagreement">

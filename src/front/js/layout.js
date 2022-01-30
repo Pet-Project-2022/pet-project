@@ -5,7 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Pet } from "./pages/pets";
 import { Login } from "./pages/login";
-//import { Register } from "./pages/register";
+import { Register } from "./pages/register";
 import { Dashboard } from "./pages/dashboard";
 import { Amber } from "./pages/amber";
 import { Petsform } from "./pages/form";
@@ -51,6 +51,7 @@ const Layout = () => {
 						<Route exact path="/signup">
 							<Signup />
 						</Route>
+
 						<Route exact path="/UploadImage">
 							<UploadImage />
 						</Route>
