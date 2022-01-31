@@ -28,9 +28,9 @@ export const Registerpet = () => {
 	return (
 		<div className="createPage">
 			<Card className="row d-flex justify-content-center text-center">
-				<Card.Body>
+				<Card.Body className="bcard">
 					<form id="petForm">
-						<div className="row">
+						<div className="form-group">
 							<div className="form-group col-xs-6">
 								<label htmlFor="petname">Possible Pet Name</label>
 								<input
@@ -44,25 +44,29 @@ export const Registerpet = () => {
 								/>
 							</div>
 						</div>
-						<div className="row">
+						<div className="form-group">
 							<div className="form-group">
-								<label htmlFor="exampleFormControlInput1">Gender</label>
-								<input
-									type="Gender"
-									className="form-control"
-									id="exampleFormControlInput1"
-									placeholder="gender"
+								<label
+									htmlFor="defaultGender"
 									name="gender"
-									value={values.gender}
-									onChange={handleChange}
-								/>
+									value={values.size}
+									onChange={handleChange}>
+									Gender
+								</label>
+
+								<select id="defaultGender">
+									<option value="">--Please choose an option--</option>
+									<option value="female">Female</option>
+									<option value="male">Male</option>
+								</select>
 							</div>
 						</div>
-						<div className="row">
+						<p />
+						<div className="form-group">
 							<div className="form-group">
 								<label htmlFor="exampleFormControlInput1">Michrochip</label>
 								<input
-									type="michrochip"
+									type="text"
 									className="form-control"
 									id="exampleFormControlInput1"
 									placeholder="michrochip"
@@ -72,11 +76,11 @@ export const Registerpet = () => {
 								/>
 							</div>
 						</div>
-						<div className="row">
+						<div className="form-group">
 							<div className="form-group">
 								<label htmlFor="exampleFormControlInput1">Found Date</label>
 								<input
-									type="founddate"
+									type="date"
 									className="form-control"
 									id="exampleFormControlInput1"
 									placeholder="found date"
@@ -86,21 +90,25 @@ export const Registerpet = () => {
 								/>
 							</div>
 						</div>
-						<div className="row">
+						<div className="form-group">
 							<div className="form-group">
-								<label htmlFor="exampleFormControlInput1">Injured</label>
-								<input
-									type="injured"
-									className="form-control"
-									id="exampleFormControlInput1"
-									placeholder="Injured"
+								<label
+									htmlFor="defaultInjured"
 									name="injured"
-									value={values.injured}
-									onChange={handleChange}
-								/>
+									value={values.size}
+									onChange={handleChange}>
+									Injured
+								</label>
+
+								<select id="defaultInjured">
+									<option value="">--Please choose an option--</option>
+									<option value="yes">Yes</option>
+									<option value="no">No</option>
+								</select>
 							</div>
 						</div>
-						<div className="row">
+						<p />
+						<div className="form-group">
 							<div className="form-group">
 								<label htmlFor="exampleFormControlInput1">Color</label>
 								<input
@@ -114,39 +122,43 @@ export const Registerpet = () => {
 								/>
 							</div>
 						</div>
-						<div className="row">
+						<div className="form-group">
 							<div className="form-group">
-								<label htmlFor="exampleFormControlInput1">Size</label>
-								<input
-									type="size"
-									className="form-control"
-									id="exampleFormControlInput1"
-									placeholder="Size"
-									name="size"
-									value={values.size}
-									onChange={handleChange}
-								/>
+								<label htmlFor="defaultSizes" name="size" value={values.size} onChange={handleChange}>
+									Size
+								</label>
+
+								<select id="defaultSizes">
+									<option value="">--Please choose an option--</option>
+									<option value="small">Small</option>
+									<option value="medium">Medium</option>
+									<option value="big">Big</option>
+								</select>
 							</div>
 						</div>
-						<div className="row">
+						<p />
+						<div className="form-group">
 							<div className="form-group">
 								<label htmlFor="exampleFormControlInput1">Weight</label>
 								<input
-									type="weight"
+									type="number"
 									className="form-control"
 									id="exampleFormControlInput1"
-									placeholder="Weight"
+									placeholder="1.0"
+									step="0.01"
+									min="0"
+									max="20"
 									name="weight"
 									value={values.weight}
 									onChange={handleChange}
 								/>
 							</div>
 						</div>
-						<div className="row">
+						<div className="form-group">
 							<div className="form-group">
 								<label htmlFor="exampleFormControlInput1">Zipcode</label>
 								<input
-									type="zipcode"
+									type="number"
 									className="form-control"
 									id="exampleFormControlInput1"
 									placeholder="Zipcode"
@@ -156,7 +168,10 @@ export const Registerpet = () => {
 								/>
 							</div>
 						</div>
-
+						<button className="btn btn-primary" type="file" onClick="">
+							Upload Picture
+						</button>
+						<p />
 						<button className="btn btn-primary" type="submit" onClick={handleFormSubmit}>
 							SUBMIT AND SPREAD THE AD
 						</button>
