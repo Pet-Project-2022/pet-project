@@ -69,8 +69,9 @@ def register_user():
     user = User(
         name=data['name'],
         email=data['email'], 
-        password=ph.hash(data['password']), 
-        is_active=True
+        password=ph.hash(data['password']),
+        zipcode=data['zipcode'], 
+        
     )
     db.session.add(user)
     db.session.commit()
@@ -88,7 +89,7 @@ def register_user():
         print(response.body)
         print(response.headers)
     except Exception as e:
-        print(e.message)
+        print(e)
 
     return '', 204
 
