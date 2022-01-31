@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/home.scss";
 import { Pet } from "./pets";
 import { SearchPets } from "../component/SearchBar";
-import { Amber } from "./amber";
+import { Container } from "react-bootstrap";
 import useSWR from "swr";
 
 export async function petFetch(path) {
@@ -18,7 +18,7 @@ export async function petFetch(path) {
 export const Home = () => {
 	const { data, isValidating } = useSWR("/api/pet", petFetch);
 	return (
-		<div className="text-center mt-5 bgmain">
+		<Container className="text-center mt-5 bgmain">
 			<SearchPets />
 			<div className="row">
 				{data &&
@@ -26,6 +26,6 @@ export const Home = () => {
 						return <Pet name={item.name} color={item.color} location={item.location} key={index} />;
 					})}
 			</div>
-		</div>
+		</Container>
 	);
 };

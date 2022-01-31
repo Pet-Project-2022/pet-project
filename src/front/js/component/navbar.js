@@ -19,7 +19,7 @@ export const NavBar = () => {
 	return (
 		<Navbar bg="light" expand="lg">
 			<Container>
-				<Navbar.Brand href="#home">
+				<Navbar.Brand href="/home">
 					<img src={Logo} width="60" height="30" className="d-inline-block align-top" alt="Lost Pets logo" />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
