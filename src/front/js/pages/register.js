@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { Context } from "../store/appContext";
+import Button from "react-bootstrap/Button";
 import create from "zustand";
 import { persist } from "zustand/middleware";
 import "../../styles/createUser.scss";
+import { Card } from "react-bootstrap";
 
 export const useAuth = create(
 	persist(
@@ -11,23 +12,20 @@ export const useAuth = create(
 			error: false,
 			success: false,
 			token: null,
-
-			register: async (email, password) => {
+			register: async (name, email, password, zipcode) => {
 				const response = await fetch(process.env.BACKEND_URL + "/api/register", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
 					},
-					body: JSON.stringify({ email, password })
+					body: JSON.stringify({ email, password, name, zipcode })
 				});
-
 				if (response.status === 204) {
 					set({ success: true });
 				} else {
 					set({ error: true });
 				}
 			},
-
 			login: async (email, password) => {
 				const response = await fetch(process.env.BACKEND_URL + "/api/login", {
 					method: "POST",
@@ -36,7 +34,6 @@ export const useAuth = create(
 					},
 					body: JSON.stringify({ email, password })
 				});
-
 				if (response.status === 200) {
 					const payload = await response.json();
 					set({ token: payload.token });
@@ -44,7 +41,6 @@ export const useAuth = create(
 					set({ error: true });
 				}
 			},
-
 			logout: () => set({ token: null })
 		}),
 		{
@@ -53,121 +49,97 @@ export const useAuth = create(
 		}
 	)
 );
-
 export const Register = () => {
-	const { store, actions } = useContext(Context);
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [first_name, setFirst_name] = useState("");
-	const [last_name, setLast_name] = useState("");
-	const [date, setDate] = useState("");
-	const [error, setError] = useState(null);
-	const [LoginStatus, setLoginStatus] = useState("");
-	const history = useHistory();
-	const [messageState, setMessageState] = useState({
-		isActive: false,
-		message: "hello"
-	});
-
-	const handleSubmit = e => {
-		e.preventDefault();
-		console.log(email, password, first_name, last_name, date);
-		actions
-			.signup(email, password, first_name, last_name, date, setMessageState)
-			.then(data => history.push("/userDashboard"))
-			.catch(error => {
-				setError(error);
-				console.log("This is an error", error);
-			});
+	const [values, setValues] = React.useState({ fullname: "" });
+	const [errors, setErrors] = React.useState({ errors: "" });
+	const auth = useAuth();
+	const handleChange = event => {
+		setValues({
+			...values,
+			[event.target.name]: event.target.value
+		});
 	};
-
+	const handleFormSubmit = e => {
+		e.preventDefault();
+		auth.register(values.fullname, values.email, values.password, values.zipcode);
+	};
 	return (
-		<div className="signupImage">
-			<div className="signupBackground vh-100">
-				<div className="container py-5 h-100">
-					<div className="row d-flex justify-content-center align-items-center h-100">
-						<div className="col-12 col-md-8 col-lg-6 col-xl-5">
-							<div className="card signupCardBackground shadow-3-strong" style={{ borderRadius: "2rem" }}>
-								<ul className="nav d-flex justify-content-center" id="myTab" role="tablist" />
-								<div className="form input d-flex justify-content-center">
-									<form className="login" onSubmit={handleSubmit}>
-										<div>
-											<h1 className="signupTitle">Sign Up</h1>
-										</div>
-										<div>
-											<div className="input-group-prepend" />
-
-											<div className="email form-outline mb-4">
-												<input
-													name="name"
-													type="first name"
-													id="typeFirstNameX"
-													className="form-control form-control-lg"
-													placeholder="First Name"
-													onChange={e => setFirst_name(e.target.value)}
-													value={first_name}
-												/>
-											</div>
-										</div>
-										<div>
-											<div className="input-group-prepend" />
-
-											<div className="email form-outline mb-4">
-												<input
-													type="last name"
-													id="typeLastNameX"
-													className="form-control form-control-lg"
-													placeholder="Last Name"
-													onChange={e => setLast_name(e.target.value)}
-													value={last_name}
-												/>
-											</div>
-										</div>
-										<div>
-											<div className="input-group-prepend" />
-
-											<div className="email form-outline mb-4">
-												<input
-													type="date"
-													id="typeLastNameX"
-													className="form-control form-control-lg"
-													onChange={e => setDate(e.target.value)}
-													value={date}
-												/>
-											</div>
-										</div>
-										<div>
-											<div className="email form-outline mb-4">
-												<input
-													type="email"
-													id="typeEmailX"
-													className="form-control form-control-lg"
-													placeholder="Email"
-													onChange={e => setEmail(e.target.value)}
-													value={email}
-												/>
-											</div>
-										</div>
-										<div className="form input d-flex justify">
-											<div className="input-group-prepend" />
-											<div className="password form-outline mb-4">
-												<input
-													type="password"
-													id="typePasswordX"
-													className="form-control form-control-lg"
-													placeholder="Password"
-													onChange={e => setPassword(e.target.value)}
-													value={password}
-												/>
-											</div>
-										</div>
-									</form>
-								</div>
+		<div className="createPage">
+			<Card className="row d-flex justify-content-center text-center">
+				<Card.Body>
+					<form id="createUserForm">
+						<div className="row">
+							<div className="form-group col-xs-6">
+								<label htmlFor="fullname">Full Name</label>
+								<input
+									type="text"
+									className="form-control"
+									id="name"
+									placeholder="full name"
+									name="fullname"
+									value={values.fullname}
+									onChange={handleChange}
+								/>
+								{errors.fullname && <p className="error">{errors.fullname}</p>}
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
+						<div className="row">
+							<div className="form-group">
+								<label htmlFor="exampleFormControlInput1">Email</label>
+								<input
+									type="email"
+									className="form-control"
+									id="exampleFormControlInput1"
+									placeholder="email"
+									name="email"
+									value={values.email}
+									onChange={handleChange}
+								/>
+								{errors.email && <p className="error">{errors.email}</p>}
+							</div>
+						</div>
+						<div className="row">
+							<div className="form-group">
+								<label htmlFor="exampleFormControlInput1">Zip Code</label>
+								<input
+									type="zipcode"
+									className="form-control"
+									id="exampleFormControlInput1"
+									placeholder="zip code"
+									name="zipcode"
+									value={values.zipcode}
+									onChange={handleChange}
+								/>
+								{errors.zipcode && <p className="error">{errors.zipcode}</p>}
+							</div>
+						</div>
+						<div className="row">
+							<div className="form-group">
+								<label htmlFor="exampleFormControlInput1">Password</label>
+								<input
+									type="password"
+									className="form-control"
+									id="exampleFormControlInput1"
+									placeholder="password"
+									name="password"
+									value={values.password}
+									onChange={handleChange}
+								/>
+								{errors.password && <p className="error">{errors.password}</p>}
+							</div>
+						</div>
+						<div className="checkagreement">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+							<label className="agretext">
+								I Agree with the Privacy Policy and the Terms of Service (Agreement Policy)
+							</label>
+						</div>
+						<button className="btn btn-primary" type="submit" onClick={handleFormSubmit}>
+							SIGN UP
+						</button>
+					</form>
+				</Card.Body>
+			</Card>
 		</div>
 	);
 };
