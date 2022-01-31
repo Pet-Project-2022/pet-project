@@ -8,7 +8,7 @@ import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { Dashboard } from "./pages/dashboard";
 import { Amber } from "./pages/amber";
-
+import { Registerpet } from "./pages/petregister";
 import injectContext from "./store/appContext";
 
 import { NavBar } from "./component/navbar";
@@ -40,6 +40,10 @@ const Layout = () => {
 
 						<Route exact path="/register">
 							<Register />
+						</Route>
+
+						<Route exact path="/petregister">
+							<Registerpet />
 						</Route>
 
 						<Route exact path="/dashboard">
