@@ -64,7 +64,7 @@ export const Register = () => {
 		auth.register(values.fullname, values.email, values.password, values.zipcode);
 	};
 	return (
-		<div className="createPage">
+		<div className="createPage justify-content-center">
 			<Card className="row d-flex justify-content-center text-center">
 				<Card.Body>
 					<form id="createUserForm">
