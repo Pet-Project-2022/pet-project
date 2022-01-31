@@ -14,7 +14,9 @@ export const Pet = props => {
 				/>
 				<div className="card-body">
 					<h5 className="card-title">{props.species}</h5>
-					<p className="card-text">Find Me!</p>
+					<a href="#" className="card-text">
+						About Me!
+					</a>
 				</div>
 				<Button />
 				<ul className="post-details list-group list-group-flush">
@@ -24,9 +26,9 @@ export const Pet = props => {
 				</ul>
 
 				<div className="card-body">
-					<a href="#" className="card-link">
-						Contact Owner
-					</a>
+					<button className="btn btn-primary" type="submit" onClick="">
+						This Is My Pet!
+					</button>
 				</div>
 			</div>
 		</div>
