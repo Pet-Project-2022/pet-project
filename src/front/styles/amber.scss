@@ -5,7 +5,17 @@
    justify-content: center; 
 }
 
+.left, .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+
 .loginArea{
+    background-color: white;
+    opacity: 80%;
     width: 60%;
     height: 75%;
     -webkit-box-shadow: 0px 5px 33px -21px grey;
@@ -14,13 +24,6 @@
     display: flex;
     align-items: center;
     border-radius: 20px;
-}
-
-.left, .right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .center{
@@ -42,7 +45,7 @@
 
 .line{
     width: 0.5px;
-    height: 70%;
+    height: 60%;
     background-color: lightgray;
     position: absolute;
     top: 0%;
@@ -86,22 +89,25 @@ input {
 
 .submit {
     width: 200px;
-    background-color: darkblue;
+    background-color: #215aaf;
     color: white;
     font-weight: bold;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
+    z-index: 1;
 }
 
 .loginTitle {
     position: absolute;
     top: 245px;
-    color: lightgray;
+    text-decoration-color: black;
+    z-index: 1;
 }
 
 .topText {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
