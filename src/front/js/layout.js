@@ -51,7 +51,7 @@ const Layout = () => {
 							<Registerpet />
 						</Route>
 
-						<Route exact path="/dashboard">
+						<Route exact path="/userDashboard">
 							<Dashboard />
 						</Route>
 

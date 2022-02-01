@@ -4,19 +4,15 @@ import { Link, useParams, Button } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Single = props => {
-	const { store, actions } = useContext(Context);
+	const [values, setValues] = React.useState({ fullname: "" });
 	const params = useParams();
-
-	console.log(params);
-
-	console.log(store);
 
 	return (
 		<div className="jumbotron">
 			<div style={{ width: "800px", height: "600px", backgroundColor: "grey", float: "left" }} />
 			<h1 className="display-4">{params.theid}</h1>
 			<p>
-				Name: {}
+				Name: {values.fullname}
 			</p>
 			<p>
 				Color: {}
