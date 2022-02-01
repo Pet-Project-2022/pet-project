@@ -6,7 +6,7 @@ import Facebook from "../component/imgs/fb.png";
 
 export const Amber = () => {
 	return (
-		<div className="container">
+		<div className="ambercontainer">
 			<div className="topText">
 				<h1>Pet Amber Alert Page</h1>
 				<h2>Start your Alet Now! It is Free!!</h2>

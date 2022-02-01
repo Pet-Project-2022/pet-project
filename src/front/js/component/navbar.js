@@ -16,7 +16,7 @@ export const NavBar = () => {
 	};
 
 	return (
-		<Navbar bg="light" expand="lg">
+		<Navbar className=" " bg="light" expand="lg">
 			<Container>
 				<Navbar.Brand>
 					<Link to="/">
