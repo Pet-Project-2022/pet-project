@@ -13,6 +13,7 @@ import injectContext from "./store/appContext";
 
 import { NavBar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Ppolicy } from "./pages/ppolicy";
 
 //create your first component
 const Layout = () => {
@@ -28,6 +29,10 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+
+						<Route exact path="/ppolicy">
+							<Ppolicy />
 						</Route>
 
 						<Route exact path="/amber">

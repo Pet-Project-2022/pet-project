@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
+import "../../styles/petregister.scss";
 
 export const Registerpet = () => {
 	const [values, setValues] = React.useState({ petname: "" });
@@ -26,8 +27,8 @@ export const Registerpet = () => {
 	};
 
 	return (
-		<div className="createPage">
-			<Card className="row d-flex justify-content-center text-center">
+		<div className="petregis">
+			<Card className="row2 d-flex justify-content-center text-center">
 				<Card.Body className="bcard">
 					<form id="petForm">
 						<div className="form-group">
