@@ -158,7 +158,7 @@ def store_pet():
     size = content["size"]
     weight = content["weight"]
     picture = content["picture"]
-    found_location = content["found_location"]
+    zipcode = content["zipcode"]
 
     return "", 204
 

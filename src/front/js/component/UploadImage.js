@@ -52,7 +52,9 @@ export const UploadImage = props => {
 							/>
 						)}
 					</div>
-					<button onClick={handleUpload}>Upload</button>
+					<button className="btn btn-primary" onClick={handleUpload}>
+						Upload
+					</button>
 				</>
 			)}
 		</div>

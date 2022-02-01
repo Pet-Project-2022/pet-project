@@ -79,10 +79,10 @@ export const Register = () => {
 	};
 	return (
 		<div className="createPage justify-content-center">
-			<Card className="row d-flex justify-content-center text-center”">
+			<Card className="row2 d-flex justify-content-center text-center”">
 				<Card.Body>
 					<form id="“createUserForm”">
-						<div className="row">
+						<div className="row3">
 							<div className="form-group">
 								<div className="form-group col-xs-6">
 									<label htmlFor="fullname">Full Name</label>
@@ -128,21 +128,20 @@ export const Register = () => {
 									{errors.zipcode && <p className="error">{errors.zipcode}</p>}
 								</div>
 							</div>
-							<div className="row">
-								<div className="form-group">
-									<label htmlFor="exampleFormControlInput1">Password</label>
-									<input
-										type="password"
-										className="form-control"
-										id="exampleFormControlInput1"
-										placeholder="password"
-										name="password"
-										value={values.password}
-										onChange={handleChange}
-									/>
-									{errors.password && <p className="error">{errors.password}</p>}
-								</div>
+							<div className="form-group">
+								<label htmlFor="exampleFormControlInput1">Password</label>
+								<input
+									type="password"
+									className="form-control"
+									id="exampleFormControlInput1"
+									placeholder="password"
+									name="password"
+									value={values.password}
+									onChange={handleChange}
+								/>
+								{errors.password && <p className="error">{errors.password}</p>}
 							</div>
+
 							<div className="checkagreement">
 								<input
 									className="form-check-input"
