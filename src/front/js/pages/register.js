@@ -78,6 +78,11 @@ export const Register = () => {
 		auth.register(values.fullname, values.email, values.password, values.zipcode);
 	};
 	return (
+		<div className="createPage justify-content-center">
+			<Card className="row d-flex justify-content-center text-center”">
+				<Card.Body>
+					<form id="“createUserForm”">
+						<div className="row">
 							<div className="form-group">
 								<div className="form-group col-xs-6">
 									<label htmlFor="fullname">Full Name</label>
@@ -152,10 +157,10 @@ export const Register = () => {
 							<button className="btn btn-primary" type="submit" onClick={handleFormSubmit}>
 								SIGN UP
 							</button>
-						</form>
-					</Card.Body>
-				</Card>
-			</div>
+						</div>
+					</form>
+				</Card.Body>
+			</Card>
 		</div>
 	);
 };
