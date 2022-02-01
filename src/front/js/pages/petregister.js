@@ -4,7 +4,7 @@ import "../../styles/petregister.scss";
 import { UploadImage } from "../component/UploadImage";
 
 export const Registerpet = () => {
-	const [values, setValues] = React.useState({ petname: "" });
+	const [values, setValues] = React.useState({ name: "" });
 	const handleChange = event => {
 		setValues({
 			...values,
@@ -18,9 +18,8 @@ export const Registerpet = () => {
 		});
 	};
 	const handleFormSubmit = e => {
-		e.preventDefault();
-		auth.register(
-			values.petname,
+		setValues(
+			values.name,
 			values.gender,
 			values.michrochip,
 			values.found_date,
@@ -39,14 +38,14 @@ export const Registerpet = () => {
 				<Card.Body className="bcard">
 					<div className="form-group">
 						<div className="form-group col-xs-6">
-							<label htmlFor="petname">Possible Pet Name</label>
+							<label htmlFor="name">Possible Pet Name</label>
 							<input
 								type="text"
 								className="form-control"
 								id="exampleFormControlInput1"
 								placeholder="Possible Pet Name"
-								name="petname"
-								value={values.petname}
+								name="name"
+								value={values.name}
 								onChange={handleChange}
 							/>
 						</div>
