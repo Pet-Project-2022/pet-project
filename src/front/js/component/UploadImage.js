@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 
-export const UploadImage = () => {
+export const UploadImage = props => {
 	const [file, setFile] = React.useState();
 	const [progress, setProgress] = React.useState([0, 0]);
 
@@ -20,33 +21,44 @@ export const UploadImage = () => {
 					"Content-Type": "multipart/form-data"
 				}
 			});
-
-			alert(response.status);
-		} catch (ex) {
-			alert(ex);
-		}
+			console.log(response);
+			props.onChange(response.data);
+		} catch (ex) {}
 	};
 
 	return (
-		<div style={{ width: 400 }}>
-			<input
-				type="file"
-				onChange={event => {
-					setFile(event.target.files[0]);
-				}}
-			/>
-			<div style={{ width: "100%", height: 10, backgroundColor: "#f0f0f0" }}>
-				{progress[1] > 0 && (
-					<div
-						style={{
-							width: `${Math.floor((progress[0] / progress[1]) * 100)}%`,
-							height: 10,
-							backgroundColor: "green"
+		<div>
+			{props.value && (
+				<>
+					<img src={process.env.BACKEND_URL + "/" + props.value} style={{ width: "100px" }} />
+				</>
+			)}
+			{!props.value && (
+				<>
+					<input
+						type="file"
+						onChange={event => {
+							setFile(event.target.files[0]);
 						}}
 					/>
-				)}
-			</div>
-			<button onClick={handleUpload}>Upload</button>
+					<div style={{ width: "100%", height: 10, backgroundColor: "#f0f0f0" }}>
+						{progress[1] > 0 && (
+							<div
+								style={{
+									width: `${Math.floor((progress[0] / progress[1]) * 100)}%`,
+									height: 10,
+									backgroundColor: "green"
+								}}
+							/>
+						)}
+					</div>
+					<button onClick={handleUpload}>Upload</button>
+				</>
+			)}
 		</div>
 	);
+};
+UploadImage.propTypes = {
+	value: PropTypes.string,
+	onChange: PropTypes.func
 };
