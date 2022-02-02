@@ -6,9 +6,9 @@ export const Footer = () => (
 	<div className="container">
 		<footer className="footer mt-auto text-center">
 			<p>
-				<a>
+				<a className="purp">
 					<i className="fas fa-desktop" />
-					All Copyrights Reserved to @Diego and Taylor.
+					All Copyrights Reserved to @Diego and Taylor.... and Ernesto. Shout out.
 				</a>
 			</p>
 		</footer>
