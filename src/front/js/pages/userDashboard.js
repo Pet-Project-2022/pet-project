@@ -6,7 +6,6 @@ import "../../styles/userDashboard.scss";
 import Button from "react-bootstrap/Button";
 
 export const MyPosts = props => {
-	const { store, actions } = useContext(Context);
 	const params = useParams();
 	const [lostPet, setLostPet] = useState([]);
 
