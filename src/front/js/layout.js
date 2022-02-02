@@ -9,6 +9,7 @@ import { Register } from "./pages/register";
 import { Dashboard } from "./pages/dashboard";
 import { Amber } from "./pages/amber";
 import { Registerpet } from "./pages/petregister";
+import { OnePet } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { NavBar } from "./component/navbar";
@@ -51,6 +52,10 @@ const Layout = () => {
 							<Registerpet />
 						</Route>
 
+						<Route exact path="/single">
+							<OnePet />
+						</Route>
+
 						<Route exact path="/dashboard">
 							<Dashboard />
 						</Route>
@@ -66,4 +71,4 @@ const Layout = () => {
 	);
 };
 
-export default injectContext(Layout);
+export default Layout;

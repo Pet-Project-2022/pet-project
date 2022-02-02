@@ -8,7 +8,7 @@ export const Amber = () => {
 	return (
 		<div className="ambercontainer">
 			<div className="topText">
-				<h1>Pet Amber Alert Page</h1>
+				<h1>Pet Amber Alert</h1>
 				<h2>Start your Alet Now! It is Free!!</h2>
 				<h3>Spread the ad throughout our community and help us to save our Pets.</h3>
 			</div>
