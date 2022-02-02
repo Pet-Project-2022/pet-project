@@ -10,6 +10,7 @@ import { Dashboard } from "./pages/dashboard";
 import { Amber } from "./pages/amber";
 import { Registerpet } from "./pages/petregister";
 import injectContext from "./store/appContext";
+import { MyPosts } from "./pages/userDashboard";
 
 import { NavBar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -52,7 +53,7 @@ const Layout = () => {
 						</Route>
 
 						<Route exact path="/userDashboard">
-							<Dashboard />
+							<MyPosts />
 						</Route>
 
 						<Route>
