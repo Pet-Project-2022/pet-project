@@ -59,8 +59,9 @@ const Layout = () => {
 
 						<Route exact path="/dashboard">
 							<Dashboard />
+						</Route>
 						<Route exact path="/userDashboard">
-							<MyPosts /> 
+							<MyPosts />
 						</Route>
 
 						<Route>

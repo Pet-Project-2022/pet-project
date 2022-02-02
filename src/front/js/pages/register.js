@@ -50,10 +50,12 @@ export const useAuth = create(
 		}
 	)
 );
+
 export const Register = () => {
 	const [values, setValues] = React.useState({ fullname: "" });
 	const [errors, setErrors] = React.useState({ errors: "" });
 	const auth = useAuth();
+	const history = useHistory();
 
 	const handleChange = event => {
 		setValues({
@@ -64,6 +66,8 @@ export const Register = () => {
 	const handleFormSubmit = e => {
 		e.preventDefault();
 		auth.register(values.fullname, values.email, values.password, values.zipcode);
+
+		history.push("/userDashboard");
 	};
 	return (
 		<div className="createPage justify-content-center">
