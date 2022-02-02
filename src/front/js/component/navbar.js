@@ -41,3 +41,4 @@ export const NavBar = () => {
 		</Navbar>
 	);
 };
+//nav.links empty navbar.collapse, inside Navbar.Collaps, return conditional
