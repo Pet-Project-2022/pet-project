@@ -5,7 +5,6 @@ import create from "zustand";
 import { persist } from "zustand/middleware";
 import "../../styles/register.scss";
 import { Card } from "react-bootstrap";
-import { createPopper } from "@popperjs/core";
 
 export const useAuth = create(
 	persist(
@@ -26,6 +25,7 @@ export const useAuth = create(
 				} else {
 					set({ error: true });
 				}
+				console.log(response);
 			},
 			login: async (email, password) => {
 				const response = await fetch(process.env.BACKEND_URL + "/api/login", {
@@ -54,19 +54,7 @@ export const Register = () => {
 	const [values, setValues] = React.useState({ fullname: "" });
 	const [errors, setErrors] = React.useState({ errors: "" });
 	const auth = useAuth();
-	const popcorn = document.querySelector("#popcorn");
-	const tooltip = document.querySelector("#tooltip");
-	createPopper(popcorn, tooltip, {
-		placement: "right",
-		modifiers: [
-			{
-				name: "offset",
-				options: {
-					offset: [0, 8]
-				}
-			}
-		]
-	});
+
 	const handleChange = event => {
 		setValues({
 			...values,

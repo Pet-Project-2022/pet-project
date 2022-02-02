@@ -3,23 +3,21 @@ import PropTypes from "prop-types";
 import { Link, useParams, Button } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Single = props => {
-	const [values, setValues] = React.useState({ fullname: "" });
-	const params = useParams();
-
+export const OnePet = () => {
 	return (
 		<div className="jumbotron">
 			<div style={{ width: "800px", height: "600px", backgroundColor: "grey", float: "left" }} />
-			<h1 className="display-4">{params.theid}</h1>
-			<p>
-				Name: {values.fullname}
-			</p>
-			<p>
-				Color: {}
-			</p>
-			<p>
-				Location: {}
-			</p>
+			<h1 className="display-4" />
+			<p>Name: {}</p>
+			<p>Gender: {}</p>
+			<p>Microchip: {}</p>
+			<p>Found Date: {}</p>
+			<p>Injured: {}</p>
+			<p>Color: {}</p>
+			<p>Size: {}</p>
+			<p>Weight: {}</p>
+			<p>Zipcode: {}</p>
+
 			<hr className="my-4" />
 			<Button>
 				<p>Alert owner</p>
@@ -33,6 +31,3 @@ export const Single = props => {
 	);
 };
 
-Single.propTypes = {
-	match: PropTypes.object
-};
