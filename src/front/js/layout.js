@@ -11,6 +11,7 @@ import { Amber } from "./pages/amber";
 import { Registerpet } from "./pages/petregister";
 import { OnePet } from "./pages/single";
 import injectContext from "./store/appContext";
+import { MyPosts } from "./pages/userDashboard";
 
 import { NavBar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -58,6 +59,8 @@ const Layout = () => {
 
 						<Route exact path="/dashboard">
 							<Dashboard />
+						<Route exact path="/userDashboard">
+							<MyPosts /> 
 						</Route>
 
 						<Route>

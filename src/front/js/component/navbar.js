@@ -34,6 +34,7 @@ export const NavBar = () => {
 					<Nav className="ms-auto">
 						<Nav.Link href="/amber">Login</Nav.Link>
 						<Nav.Link href="/register">Sign up</Nav.Link>
+						<Nav.Link href="/userDashboard">My Posts</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>
