@@ -15,21 +15,26 @@ export const NavBar = () => {
 	};
 
 	return (
-		<Navbar className=" " bg="light" expand="lg">
+		<Navbar className="navbar" bg="white" expand="lg">
 			<Container>
 				<Navbar.Brand>
 					<Link to="/">
 						<img
 							src={Logo}
-							width="60"
-							height="30"
-							className="d-inline-block align-top"
+							width="200"
+							height="120"
+							className="logo d-inline-block align-top"
 							alt="Lost Pets logo"
 						/>
 					</Link>
 				</Navbar.Brand>
-
+				<p className="description">
+					If you lost your pet, or found one on the streets, help us. Spread your ad to save our Pets.
+					<br />
+					Alert Now! Its Free!!
+				</p>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
+
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="ms-auto">
 						<Nav.Link href="/amber">Login</Nav.Link>

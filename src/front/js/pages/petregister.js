@@ -4,7 +4,7 @@ import "../../styles/petregister.scss";
 import { UploadImage } from "../component/UploadImage";
 
 export const Registerpet = () => {
-	const [values, setValues] = React.useState({ name: "" });
+	const [values, setValues] = React.useState({ possible_name: "" });
 	const handleChange = event => {
 		setValues({
 			...values,
@@ -19,7 +19,7 @@ export const Registerpet = () => {
 	};
 	const handleFormSubmit = e => {
 		setValues(
-			values.name,
+			values.possible_name,
 			values.gender,
 			values.michrochip,
 			values.found_date,
@@ -44,8 +44,8 @@ export const Registerpet = () => {
 								className="form-control"
 								id="exampleFormControlInput1"
 								placeholder="Possible Pet Name"
-								name="name"
-								value={values.name}
+								name="possible_name"
+								value={values.possible_nameme}
 								onChange={handleChange}
 							/>
 						</div>

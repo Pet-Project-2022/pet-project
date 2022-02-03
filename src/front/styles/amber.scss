@@ -5,55 +5,26 @@
    justify-content: center; 
 }
 
-.left, .right {
-    flex: 1;
+.inputArea {
+    flex:auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
+    bottom: 10px;;
 }
 
 .loginArea{
     background-color: white;
-    opacity: 80%;
-    width: 45%;
-    height: 75%;
+    opacity: 90%;
+    width: 455px;
+    height: 305px;
     -webkit-box-shadow: 0px 5px 33px -21px grey;
     -moz-box-shadow: 0px 5px 33px -21px grey;
     box-shadow: 0px 5px 33px -12px grey;
     display: flex;
     align-items: center;
     border-radius: 20px;
-}
-
-.center{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.or{
-    border: 2px solid lightgray;
-    border-radius: 50%;
-    padding: 10px;
-    color: grey;
-    background-color: white;
-    font-weight: bold;
-}
-
-.line{
-    width: 0.5px;
-    height: 60%;
-    background-color: lightgray;
-    position: absolute;
-    top: 0%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    z-index: -1;
 }
 
 .loginButton{
@@ -81,7 +52,7 @@
     margin-right: 10px;
 }
 
-input {
+.form-control {
     width: 200px;
     padding: 10px 20px;
     margin-bottom: 20px;
@@ -106,6 +77,13 @@ input {
 }
 
 .topText {
+    color: black;
+    display: flex;
+    position: absolute;
+    top: 245px;
+}
+
+.ambercontainer {
     display: flex;
     flex-direction: column;
     align-items: center;
