@@ -4,10 +4,11 @@ import { Link, useHistory } from "react-router-dom";
 import { Navbar, NavDropdown, Nav, Container } from "react-bootstrap";
 import Logo from "../../img/LOGO2.jpg";
 import "../../styles/navbar.scss";
+import { useAuth } from "../pages/register";
 
 export const NavBar = () => {
 	const history = useHistory();
-
+	const login = useAuth();
 	const handleLogOut = () => {
 		localStorage.clear();
 		history.push("/");
@@ -37,9 +38,9 @@ export const NavBar = () => {
 
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="ms-auto">
-						<Nav.Link href="/amber">Login</Nav.Link>
-						<Nav.Link href="/register">Sign up</Nav.Link>
-						<Nav.Link href="/userDashboard">My Posts</Nav.Link>
+						{!login.isLogged() && <Nav.Link href="/amber">Login</Nav.Link>}
+						{!login.isLogged() && <Nav.Link href="/register">Sign up</Nav.Link>}
+						{login.isLogged() && <Nav.Link href="/userDashboard">My Posts</Nav.Link>}
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

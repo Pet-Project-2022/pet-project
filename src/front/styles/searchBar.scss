@@ -1,6 +1,26 @@
 .title {
-    color: rgb(130, 93, 223);
+    color: rgb(59, 1, 15);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 20px;
+    width: 1000px;
+    flex-direction: column;
+    align-items: center;
+
 }
 .amberLink{
     color: rgb(130, 93, 223);
+}
+
+.containerSearchbar {
+    justify-content: center;
+    width: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    opacity: 80%;
+    -webkit-box-shadow: 0px 5px 33px -21px grey;
+    -moz-box-shadow: 0px 5px 33px -21px grey;
+    box-shadow: 0px 5px 33px -12px grey;
 }

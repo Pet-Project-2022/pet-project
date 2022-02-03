@@ -8,10 +8,13 @@ import { Card } from "react-bootstrap";
 
 export const useAuth = create(
 	persist(
-		set => ({
+		(set, get) => ({
 			error: false,
 			success: false,
 			token: null,
+			isLogged: () => {
+				return !!get().token;
+			},
 			register: async (name, email, password, zipcode) => {
 				const response = await fetch(process.env.BACKEND_URL + "/api/register", {
 					method: "POST",

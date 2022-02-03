@@ -5,12 +5,13 @@ export function SearchPets() {
 	const [task, setTask] = React.useState("");
 
 	return (
-		<div className="container">
+		<div className="containerSearchbar">
 			<div>
-				<h1 className="title">Search Lost Pets</h1>
+				<h1 className="title">Community of Lost and Found Pets</h1>
 			</div>
-			<div>
+			<div className="searchbar">
 				<input
+					placeholder="Start Search Your Pet Here!"
 					className="input"
 					style={{ width: "300px" }}
 					type="text"
@@ -25,7 +26,9 @@ export function SearchPets() {
 					}}
 				/>
 				<input type="button" value=" Filter " id="FilterButton" />
-				<input type="button" value=" Submit " id="SubmitButton" />
+				<button type="input" value=" Submit " id="SubmitButton">
+					Search Pet
+				</button>
 				<br />
 				<a href="/amber/" className="amberLink">
 					Start your Alert Now! Its Free!!
