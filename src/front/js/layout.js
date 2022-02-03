@@ -12,9 +12,9 @@ import { Registerpet } from "./pages/petregister";
 import { OneSinglePet } from "./pages/single";
 import injectContext from "./store/appContext";
 import { MyPosts } from "./pages/userDashboard";
+import { Footer } from "./component/footer";
 
 import { NavBar } from "./component/navbar";
-import { Footer } from "./component/footer";
 import { Ppolicy } from "./pages/ppolicy";
 
 //create your first component

@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 
 export const Footer = () => (
 	<div className="container">
-		<footer className="footer mt-auto text-center">
+		<footer className="navbar-expand-lg navbar-light bg">
 			<p>
 				<a className="purp">
 					<i className="fas fa-desktop" />
