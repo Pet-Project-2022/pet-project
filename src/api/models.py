@@ -25,12 +25,11 @@ class User(db.Model):
 
 class Pet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), unique=False, nullable=True)
+    possible_name = db.Column(db.String(120), unique=False, nullable=True)
     gender = db.Column(db.String(120), unique=False, nullable=True)
     michrochip = db.Column(db.String(120), unique=True, nullable=True)
     found_date = db.Column(db.String(120), unique=False, nullable=True)
     injured = db.Column(db.String(120), unique=False, nullable=True)
-    possible_name = db.Column(db.String(120), unique=False, nullable=True)
     color = db.Column(db.String(120), unique=False, nullable=False)
     size = db.Column(db.String(120), unique=False, nullable=True)
     weight = db.Column(db.String(120), unique=False, nullable=True)

@@ -9,7 +9,7 @@ import { Register } from "./pages/register";
 import { Dashboard } from "./pages/dashboard";
 import { Amber } from "./pages/amber";
 import { Registerpet } from "./pages/petregister";
-import { OnePet } from "./pages/single";
+import { OneSinglePet } from "./pages/single";
 import injectContext from "./store/appContext";
 import { MyPosts } from "./pages/userDashboard";
 
@@ -53,8 +53,11 @@ const Layout = () => {
 							<Registerpet />
 						</Route>
 
+						<Route exact path="/pets">
+							<Pet />
+						</Route>
 						<Route exact path="/single">
-							<OnePet />
+							<OneSinglePet />
 						</Route>
 
 						<Route exact path="/dashboard">

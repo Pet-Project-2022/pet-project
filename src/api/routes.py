@@ -97,7 +97,6 @@ def register_user():
 @api.route('/login', methods=['POST'])
 def login():
     data = request.get_json(force=True)
-    name = data['name']
     email = data['email']
     password = data['password']
 
@@ -149,11 +148,11 @@ def store_pet():
     content = request.get_json()
     print("", body)
     animal_id = content["animal_id"]
+    possible_name = content["possible_name"]
     gender = content["gender"]
     michrochip = content["michrochip"]
     found_date = content["found_date"]
     injured = content["injured"]
-    possible_name = content["possible_name"]
     color = content["color"]
     size = content["size"]
     weight = content["weight"]

@@ -1,5 +1,22 @@
-.name{
-display: flex;
-align-items: center;
-justify-content: center;
+.dash{
+    height: calc(100vh - 550px);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 }
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 20px;
+    width: 45%;
+    height: 75%;
+    }
+

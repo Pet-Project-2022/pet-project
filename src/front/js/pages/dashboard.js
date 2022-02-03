@@ -16,7 +16,7 @@ export function Dashboard() {
 	);
 
 	return (
-		<div>
+		<div className="dashcontainer">
 			<h1>Dashboard Page</h1>
 
 			<button onClick={() => auth.logout()}>Logout</button>

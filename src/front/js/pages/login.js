@@ -10,7 +10,7 @@ export const Login = () => {
 	useEffect(
 		() => {
 			if (login.token) {
-				history.push("/dashboard");
+				history.push("/userDashboard");
 			}
 		},
 		[login.token]
