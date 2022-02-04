@@ -1,43 +1,28 @@
 import React, { useState, useEffect, useContext } from "react";
-import "../../styles/pets.scss";
-import Button from "react-bootstrap/Button";
-import PropTypes from "prop-types";
+import useSWR from "swr";
+import { Container } from "react-bootstrap";
+import { Petcard } from "../component/petcard";
 
-export const Pet = props => {
+export async function petFetch(path) {
+	const response = await fetch("https://3001-diegomarteens-petproject-a7mk5aii0zh.ws-us30.gitpod.io" + path);
+	if (response.status === 200) {
+		const payload = await response.json();
+
+		return payload;
+	}
+	throw new Error();
+}
+
+export const Pet = () => {
+	const { data, isValidating } = useSWR("/api/pet", petFetch);
 	return (
-		<div className="row">
-			<div className="card w-25 p-3">
-				<img
-					className="card-img-top"
-					src={"https://cloudfront-us-east-1.images.arcpublishing.com/gmg/BN6CBRWE4RBOPC3KT5DVP4KFZI.jpg"}
-					alt="Card image cap"
-				/>
-				<div className="card-body">
-					<h5 className="card-title">{props.species}</h5>
-					<a href="#" className="card-text">
-						About Me!
-					</a>
-				</div>
-				<Button />
-				<ul className="post-details list-group list-group-flush">
-					<li className="list-group-item">{props.name}</li>
-					<li className="list-group-item">{props.color}</li>
-					<li className="list-group-item">{props.location}</li>
-				</ul>
-
-				<div className="card-body">
-					<button className="btn btn-primary" type="submit" onClick="">
-						This Is My Pet!
-					</button>
-				</div>
+		<Container className="text-center mt-5 bgmain">
+			<div className="row">
+				{data &&
+					data.map((item, index) => {
+						return <Petcard name={item.name} color={item.color} location={item.location} key={index} />;
+					})}
 			</div>
-		</div>
+		</Container>
 	);
-};
-
-Pet.propTypes = {
-	name: PropTypes.string,
-	color: PropTypes.string,
-	location: PropTypes.string,
-	species: PropTypes.string
 };
