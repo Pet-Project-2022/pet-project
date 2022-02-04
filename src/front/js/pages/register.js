@@ -16,13 +16,16 @@ export const useAuth = create(
 				return !!get().token;
 			},
 			register: async (name, email, password, zipcode) => {
-				const response = await fetch(process.env.BACKEND_URL + "/api/register", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json"
-					},
-					body: JSON.stringify({ email, password, name, zipcode })
-				});
+				const response = await fetch(
+					"https://3001-diegomarteens-petproject-a7mk5aii0zh.ws-us30.gitpod.io" + "/api/register",
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify({ email, password, name, zipcode })
+					}
+				);
 				if (response.status === 204) {
 					set({ success: true });
 				} else {
