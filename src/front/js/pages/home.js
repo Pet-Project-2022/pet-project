@@ -1,8 +1,8 @@
 import React from "react";
 import { SearchPets } from "../component/SearchBar";
 import { Container } from "react-bootstrap";
-import useSWR from "swr";
 import { Pet } from "./pets";
+import "../../styles/home.scss";
 
 export const Home = () => {
 	return (

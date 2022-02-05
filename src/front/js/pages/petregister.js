@@ -45,7 +45,7 @@ export const Registerpet = () => {
 								id="exampleFormControlInput1"
 								placeholder="Possible Pet Name"
 								name="possible_name"
-								value={values.possible_nameme}
+								value={values.possible_name}
 								onChange={handleChange}
 							/>
 						</div>
