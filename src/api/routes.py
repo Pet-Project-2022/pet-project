@@ -122,7 +122,7 @@ def get_pets():
 
     location = request.args.get("location")
     if location is not None:
-        pets = pets.filter(Pet.location == location)
+        pets = pets.filter(Pet.location == found_date)
 
     name = request.args.get("name")
     if name is not None:

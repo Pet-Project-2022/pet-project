@@ -16,11 +16,13 @@ export async function petFetch(path) {
 export const Pet = () => {
 	const { data, isValidating } = useSWR("/api/pet", petFetch);
 	return (
-		<Container className="text-center mt-5 bgmain">
-			<div className="row">
+		<Container className="text mt-5 bgmain">
+			<div className="row row-cols-1 row-cols-md-3 g-4">
 				{data &&
 					data.map((item, index) => {
-						return <Petcard name={item.name} color={item.color} location={item.location} key={index} />;
+						return (
+							<Petcard name={item.possible_name} color={item.color} location={item.zipcode} key={index} />
+						);
 					})}
 			</div>
 		</Container>
