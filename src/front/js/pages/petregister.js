@@ -1,35 +1,50 @@
+import e from "cors";
 import React, { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
 import "../../styles/petregister.scss";
 import { UploadImage } from "../component/UploadImage";
+import { useHistory } from "react-router-dom";
 
 export const Registerpet = () => {
-	const [values, setValues] = React.useState({ possible_name: "" });
+	const [values, setValues] = React.useState({
+		possible_name: "",
+		gender: "",
+		michrochip: "",
+		found_date: "",
+		injured: "",
+		color: "",
+		size: "",
+		weight: "",
+		picture: "",
+		zipcode: ""
+	});
+	const history = useHistory();
+
 	const handleChange = event => {
 		setValues({
 			...values,
 			[event.target.name]: event.target.value
 		});
 	};
-	const handleImageChange = image => {
+	const handleImageChange = picture => {
 		setValues({
 			...values,
-			image
+			picture
 		});
 	};
-	const handleFormSubmit = e => {
-		setValues(
-			values.possible_name,
-			values.gender,
-			values.michrochip,
-			values.found_date,
-			values.injured,
-			values.color,
-			values.size,
-			values.weight,
-			values.zipcode,
-			values.picture
-		);
+	const handleFormSubmit = async () => {
+		const response = await fetch(process.env.BACKEND_URL + "/api/pet", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(values)
+		});
+		if (response.status === 204) {
+			history.push("/");
+		} else {
+			history.push("/petregister");
+		}
 	};
 
 	return (

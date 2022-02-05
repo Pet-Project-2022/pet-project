@@ -27,7 +27,7 @@ class Pet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     possible_name = db.Column(db.String(120), unique=False, nullable=True)
     gender = db.Column(db.String(120), unique=False, nullable=True)
-    michrochip = db.Column(db.String(120), unique=True, nullable=True)
+    michrochip = db.Column(db.String(120), unique=False, nullable=True)
     found_date = db.Column(db.String(120), unique=False, nullable=True)
     injured = db.Column(db.String(120), unique=False, nullable=True)
     color = db.Column(db.String(120), unique=False, nullable=False)
@@ -54,5 +54,5 @@ class Pet(db.Model):
             "weight": self.weight,
             "picture": self.picture,
             "zipcode": self.zipcode,
-            "user": self.user.serialize()
+            "user": self.user
         }
