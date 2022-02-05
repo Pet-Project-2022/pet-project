@@ -17,7 +17,7 @@ export const useAuth = create(
 			},
 			register: async (name, email, password, zipcode) => {
 				const response = await fetch(
-					"https://3001-diegomarteens-petproject-a7mk5aii0zh.ws-us30.gitpod.io" + "/api/register",
+					"https://3001-thart003-petproject-rphsugu6tua.ws-us30.gitpod.io" + "/api/register",
 					{
 						method: "POST",
 						headers: {

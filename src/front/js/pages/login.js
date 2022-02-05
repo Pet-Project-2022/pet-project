@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import { useAuth } from "./register";
+import "../../styles/login.scss";
 
 export const Login = () => {
 	const [email, setEmail] = React.useState("");
@@ -48,10 +49,11 @@ export const Login = () => {
 					onChange={ev => setPassword(ev.target.value)}
 				/>
 			</div>
-
-			<button type="button" className="btn btn-primary" onClick={() => login.login(email, password)}>
-				Login button
-			</button>
+			<div className="buttonHolder mx-auto">
+				<button type="button" className="btn btn-primary" onClick={() => login.login(email, password)}>
+					Login button
+				</button>
+			</div>
 		</form>
 	);
 };
