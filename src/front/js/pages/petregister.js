@@ -37,11 +37,11 @@ export const Registerpet = () => {
 			<Card className="row2 d-flex justify-content-center text-center">
 				<Card.Body className="bcard">
 					<div className="form-group">
-						<div className="form-group col-xs-6">
+						<div className="form-group mx-auto">
 							<label htmlFor="name">Possible Pet Name</label>
 							<input
 								type="text"
-								className="form-control"
+								className="form-control mx-auto"
 								id="exampleFormControlInput1"
 								placeholder="Possible Pet Name"
 								name="possible_name"
@@ -69,7 +69,7 @@ export const Registerpet = () => {
 							<label htmlFor="exampleFormControlInput1">Michrochip</label>
 							<input
 								type="text"
-								className="form-control"
+								className="form-control mx-auto"
 								id="exampleFormControlInput1"
 								placeholder="michrochip"
 								name="michrochip"
@@ -83,7 +83,7 @@ export const Registerpet = () => {
 							<label htmlFor="exampleFormControlInput1">Found Date</label>
 							<input
 								type="date"
-								className="form-control"
+								className="form-control mx-auto"
 								id="exampleFormControlInput1"
 								placeholder="found date"
 								name="founddate"
@@ -111,7 +111,7 @@ export const Registerpet = () => {
 							<label htmlFor="exampleFormControlInput1">Color</label>
 							<input
 								type="color"
-								className="form-control"
+								className="form-control mx-auto"
 								id="exampleFormControlInput1"
 								placeholder="Color"
 								name="color"
@@ -140,7 +140,7 @@ export const Registerpet = () => {
 							<label htmlFor="exampleFormControlInput1">Weight</label>
 							<input
 								type="number"
-								className="form-control"
+								className="form-control mx-auto"
 								id="exampleFormControlInput1"
 								placeholder="1.0"
 								step="0.01"
@@ -157,7 +157,7 @@ export const Registerpet = () => {
 							<label htmlFor="exampleFormControlInput1">Zipcode</label>
 							<input
 								type="number"
-								className="form-control"
+								className="form-control mx-auto"
 								id="exampleFormControlInput1"
 								placeholder="Zipcode"
 								name="zipcode"
@@ -166,7 +166,7 @@ export const Registerpet = () => {
 							/>
 						</div>
 					</div>
-					<UploadImage value={values.image} onChange={handleImageChange} />
+					<UploadImage value={values.image} onChange={handleImageChange} className="form-control mx-auto" />
 					<p />
 					<button className="btn btn-primary" type="submit" onClick={handleFormSubmit}>
 						SUBMIT AND SPREAD THE AD
