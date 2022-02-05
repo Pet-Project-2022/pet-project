@@ -13,6 +13,7 @@ import { OneSinglePet } from "./pages/single";
 import injectContext from "./store/appContext";
 import { MyPosts } from "./pages/userDashboard";
 import { Footer } from "./component/footer";
+import { UploadImage } from "./component/UploadImage";
 
 import { NavBar } from "./component/navbar";
 import { Ppolicy } from "./pages/ppolicy";
@@ -65,6 +66,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/userDashboard">
 							<MyPosts />
+						</Route>
+						<Route>
+							<Route exact path="/UploadImage" />
 						</Route>
 
 						<Route>

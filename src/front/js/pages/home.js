@@ -6,7 +6,7 @@ import { Pet } from "./pets";
 
 export const Home = () => {
 	return (
-		<div className="container">
+		<div className="mainpage">
 			<Container className="text-center mt-5 bgmain">
 				<SearchPets />
 

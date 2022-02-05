@@ -122,7 +122,7 @@ def get_pets():
 
     location = request.args.get("location")
     if location is not None:
-        pets = pets.filter(Pet.location == found_date)
+        pets = pets.filter(Pet.location == location)
 
     name = request.args.get("name")
     if name is not None:
@@ -146,8 +146,6 @@ def find_single_pet(id):
 @api.route('/pet', methods=["POST"])
 def store_pet():
     content = request.get_json()
-    print("", body)
-    animal_id = content["animal_id"]
     possible_name = content["possible_name"]
     gender = content["gender"]
     michrochip = content["michrochip"]
@@ -159,8 +157,22 @@ def store_pet():
     picture = content["picture"]
     zipcode = content["zipcode"]
 
-    return "", 204
+    pet = Pet(
+        possible_name=possible_name,
+        gender=gender,
+        michrochip=michrochip,
+        found_date=found_date,
+        injured=injured,
+        color=color,
+        size=size,
+        weight=weight,
+        picture=picture,
+        zipcode=zipcode,
+    )
+    db.session.add(pet)
+    db.session.commit()
 
+    return "", 204
 
 @api.route('/pet/<id>', methods=['DELETE'])
 def remove_pet(id):

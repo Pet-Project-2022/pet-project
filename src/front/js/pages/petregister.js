@@ -1,35 +1,50 @@
+import e from "cors";
 import React, { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
 import "../../styles/petregister.scss";
 import { UploadImage } from "../component/UploadImage";
+import { useHistory } from "react-router-dom";
 
 export const Registerpet = () => {
-	const [values, setValues] = React.useState({ possible_name: "" });
+	const [values, setValues] = React.useState({
+		possible_name: "",
+		gender: "",
+		michrochip: "",
+		found_date: "",
+		injured: "",
+		color: "",
+		size: "",
+		weight: "",
+		picture: "",
+		zipcode: ""
+	});
+	const history = useHistory();
+
 	const handleChange = event => {
 		setValues({
 			...values,
 			[event.target.name]: event.target.value
 		});
 	};
-	const handleImageChange = image => {
+	const handleImageChange = picture => {
 		setValues({
 			...values,
-			image
+			picture
 		});
 	};
-	const handleFormSubmit = e => {
-		setValues(
-			values.possible_name,
-			values.gender,
-			values.michrochip,
-			values.found_date,
-			values.injured,
-			values.color,
-			values.size,
-			values.weight,
-			values.zipcode,
-			values.picture
-		);
+	const handleFormSubmit = async () => {
+		const response = await fetch(process.env.BACKEND_URL + "/api/pet", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(values)
+		});
+		if (response.status === 204) {
+			history.push("/");
+		} else {
+			history.push("/petregister");
+		}
 	};
 
 	return (
@@ -37,15 +52,15 @@ export const Registerpet = () => {
 			<Card className="row2 d-flex justify-content-center text-center">
 				<Card.Body className="bcard">
 					<div className="form-group">
-						<div className="form-group col-xs-6">
+						<div className="form-group mx-auto">
 							<label htmlFor="name">Possible Pet Name</label>
 							<input
 								type="text"
-								className="form-control"
+								className="form-control mx-auto"
 								id="exampleFormControlInput1"
 								placeholder="Possible Pet Name"
 								name="possible_name"
-								value={values.possible_nameme}
+								value={values.possible_name}
 								onChange={handleChange}
 							/>
 						</div>
@@ -69,7 +84,7 @@ export const Registerpet = () => {
 							<label htmlFor="exampleFormControlInput1">Michrochip</label>
 							<input
 								type="text"
-								className="form-control"
+								className="form-control mx-auto"
 								id="exampleFormControlInput1"
 								placeholder="michrochip"
 								name="michrochip"
@@ -83,7 +98,7 @@ export const Registerpet = () => {
 							<label htmlFor="exampleFormControlInput1">Found Date</label>
 							<input
 								type="date"
-								className="form-control"
+								className="form-control mx-auto"
 								id="exampleFormControlInput1"
 								placeholder="found date"
 								name="founddate"
@@ -111,7 +126,7 @@ export const Registerpet = () => {
 							<label htmlFor="exampleFormControlInput1">Color</label>
 							<input
 								type="color"
-								className="form-control"
+								className="form-control mx-auto"
 								id="exampleFormControlInput1"
 								placeholder="Color"
 								name="color"
@@ -140,7 +155,7 @@ export const Registerpet = () => {
 							<label htmlFor="exampleFormControlInput1">Weight</label>
 							<input
 								type="number"
-								className="form-control"
+								className="form-control mx-auto"
 								id="exampleFormControlInput1"
 								placeholder="1.0"
 								step="0.01"
@@ -157,7 +172,7 @@ export const Registerpet = () => {
 							<label htmlFor="exampleFormControlInput1">Zipcode</label>
 							<input
 								type="number"
-								className="form-control"
+								className="form-control mx-auto"
 								id="exampleFormControlInput1"
 								placeholder="Zipcode"
 								name="zipcode"
@@ -166,7 +181,7 @@ export const Registerpet = () => {
 							/>
 						</div>
 					</div>
-					<UploadImage value={values.image} onChange={handleImageChange} />
+					<UploadImage value={values.image} onChange={handleImageChange} className="form-control mx-auto" />
 					<p />
 					<button className="btn btn-primary" type="submit" onClick={handleFormSubmit}>
 						SUBMIT AND SPREAD THE AD

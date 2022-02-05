@@ -9,7 +9,7 @@ export const Petcard = props => {
 				<div className="card width: 3rem;">
 					<img
 						className="card-img-top"
-						src={"https://cloudfront-us-east-1.images.arcpublishing.com/gmg/BN6CBRWE4RBOPC3KT5DVP4KFZI.jpg"}
+						src={process.env.BACKEND_URL + "/" + props.picture}
 						alt="Card image cap"
 					/>
 					<div className="card-body">
@@ -23,7 +23,7 @@ export const Petcard = props => {
 							Name:
 							{props.name}
 						</li>
-						<li className="list-group-item">Color: {props.color}</li>
+						<li className="list-group-item">Injured: {props.injured}</li>
 						<li className="list-group-item">
 							Zipcode:
 							{props.location}
@@ -43,7 +43,8 @@ export const Petcard = props => {
 
 Petcard.propTypes = {
 	name: PropTypes.string,
-	color: PropTypes.string,
+	injured: PropTypes.string,
 	location: PropTypes.string,
-	gender: PropTypes.string
+	gender: PropTypes.string,
+	picture: PropTypes.string
 };
