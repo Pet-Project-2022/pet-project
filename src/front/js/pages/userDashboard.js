@@ -12,18 +12,18 @@ export const MyPosts = () => {
 	const auth = useAuth();
 	const history = useHistory();
 
-	async function getTitle(path) {
-		const response = await fetch(process.env.BACKEND_URL + path);
+	async function fetchMyPets(path) {
+		const response = await fetch(process.env.BACKEND_URL + path, {
+			headers: {
+				Authorization: "Bearer " + auth.token
+			}
+		});
 		if (response.status === 200) {
 			const payload = await response.json();
 			return payload;
 		}
 		throw new Error();
 	}
-
-	React.useEffect(() => {
-		getTitle();
-	}, []);
 
 	React.useEffect(
 		() => {
@@ -33,7 +33,7 @@ export const MyPosts = () => {
 		},
 		[auth.token]
 	);
-	const { data, isValidating } = useSWR("/api/pets", getTitle);
+	const { data, isValidating } = useSWR("/api/pets", fetchMyPets);
 	return (
 		<Container>
 			<div className="dash">
