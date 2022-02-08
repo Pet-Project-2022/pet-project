@@ -54,5 +54,4 @@ class Pet(db.Model):
             "weight": self.weight,
             "picture": self.picture,
             "zipcode": self.zipcode,
-            "user": self.user
         }

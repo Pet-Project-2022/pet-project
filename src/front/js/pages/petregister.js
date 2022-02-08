@@ -48,7 +48,7 @@ export const Registerpet = () => {
 	};
 
 	return (
-		<div className="petregis">
+		<div className="petregis w-100">
 			<Card className="row2 d-flex justify-content-center text-center">
 				<Card.Body className="bcard">
 					<div className="form-group">
