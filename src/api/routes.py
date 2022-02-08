@@ -142,7 +142,15 @@ def find_single_pet(id):
 
     return jsonify(single_pet.serialize()), 200
 
+@api.route('/pets', methods=['GET'])
+@jwt_required()
+def petTitle():
+    current_user_id = get_jwt_identity()
+    pets = Pet.query.filter_by(user_id=current_user_id)
+    pet_objects = [pet.serialize() for pet in pets]
+    return jsonify(pet_objects), 200
 
+    
 @api.route('/pet', methods=["POST"])
 def store_pet():
     content = request.get_json()
