@@ -1,12 +1,8 @@
 body{
-    background-image: url("https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325466/man-walking-dog.jpg");
+    background-image: "https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325466/man-walking-dog.jpg";
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center center;
-}
-
-.container {
-    display: flex;
     flex-direction: row;
 }
