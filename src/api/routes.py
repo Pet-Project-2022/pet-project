@@ -150,6 +150,14 @@ def petTitle():
     pet_objects = [pet.serialize() for pet in pets]
     return jsonify(pet_objects), 200
 
+    #current_user_id = get_jwt_identity()
+    pets = Pet.query.filter_by(user_id=current_user_id)
+    pet_objects = [pet.serialize() for pet in pets]
+    #names = [item for item in pet_objects]
+    
+    return jsonify(pet_objects), 200
+
+
     
 @api.route('/pet', methods=["POST"])
 def store_pet():

@@ -24,6 +24,7 @@ export const Petcard = props => {
 							{props.name}
 						</li>
 						<li className="list-group-item">Injured: {props.injured}</li>
+						<li className="list-group-item">Color: {props.color}</li>
 						<li className="list-group-item">
 							Zipcode:
 							{props.location}
