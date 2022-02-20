@@ -47,5 +47,6 @@ Petcard.propTypes = {
 	injured: PropTypes.string,
 	location: PropTypes.string,
 	gender: PropTypes.string,
+	color: PropTypes.string,
 	picture: PropTypes.string
 };
