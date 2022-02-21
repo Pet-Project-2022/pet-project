@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import create from "zustand";
 import { persist } from "zustand/middleware";
 import "../../styles/register.scss";
