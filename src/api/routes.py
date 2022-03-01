@@ -91,7 +91,7 @@ def register_user():
     except Exception as e:
         print(e)
 
-    return '', 204
+    return jsonify({"msg": "user created successfully", "user": user.name}), 200
 
 
 @api.route('/login', methods=['POST'])
