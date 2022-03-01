@@ -22,7 +22,7 @@ export const useAuth = create(
 					},
 					body: JSON.stringify({ email, password, name, zipcode })
 				});
-				if (response.status === 204) {
+				if (response.status === 200) {
 					set({ success: true });
 				} else {
 					set({ error: true });
